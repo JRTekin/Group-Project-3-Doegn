@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Sikrer at siden er responsiv og tilpasser sig forskellige skærmstørrelser -->
+    <title>Login</title>
+     <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-body"> <!--Tilføj en klasse til body for at kunne style denne side specifikt i CSS-->
+    <div class="wrapper">
+        <form action="">
+            <h1>Login</h1>
+            <div class="input-box">
+            <input type="text" placeholder="Brugernavn"  required> <!--Inputfelt for brugernavn--> <!--required attributten sikrer at feltet skal udfyldes før formularen kan indsendes-->
+            </div>
+            <div class="input-box">
+            <input type="password" placeholder="Kodeord"  required> <!--Inputfelt for kodeord--> <!--required attributten sikrer at feltet skal udfyldes før formularen kan indsendes-->
+            </div>
+            <div class="remember-forgot">
+                <label><input type="checkbox"> Husk mig</label> <!--Checkbox for at huske brugeren-->
+                <a href="#">Glemt kodeord?</a> <!--Link for at gendanne kodeord-->
+            </div>
+            <button type="submit" class="login-btn">Login</button> <!--Submit-knap for at sende formularen-->
+            <div class="register-link">
+                <p>Har du ikke en konto? <a href="#">Registrer her</a></p> <!--Link for at registrere en ny konto-->
+            </div>
+        </form>
+
+    </div>
+
+
+
+</body>

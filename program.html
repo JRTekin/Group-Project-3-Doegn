@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Sikrer at siden er responsiv og tilpasser sig forskellige skærmstørrelser -->
+    <title>TreDoegn</title>
+     <link rel="stylesheet" href="style.css">
+     <script src="script.js" defer></script>
+</head>
+<body>
+    <!--START NAVBAR-->
+    <header class="header"> <!--Header med logo og navigation-->
+        <nav class="navbar">   
+            <ul>
+                <li class="logo"> <!--Logoet fungerer også som link til forsiden-->
+                    <a href="index.html">
+                        <img src="symbols/logo-hvid.png" alt="Tre Døgn Logo"> <!--Logoet skal være i samme mappe som index.html for at dette virker-->
+                    </a>
+                </li>
+                <li><a class="navbar-link" href="om.html">Om</a></li>
+                <li><a class="navbar-link" href="program.html">Program</a></li>
+                <li><a class="btn" href="billet.html">Køb billet</a></li>
+                <li><div class="sidebar" id="mySidebar"> <!--Sidebar navigation-->
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> <!--Knappen for at lukke siden-->
+                    <a href="billet.html">Billetter</a>
+                    <a href="program.html">Program</a>
+                    <a href="praktisk-info.html">Praktisk info</a>
+                    <a href="om.html">Om</a>
+                    </div>
+                    <div id="main">
+                        <button class="openbtn" onclick="openNav()">&#9776;</button> <!--Knappen for at åbne siden-->
+                    </div>  
+                </li>
+            </ul>
+        </nav>
+    </header>
+<!--END NAVBAR-->
+<main></main>
+    <section class="program-intro">
+        <h1>Program</h1>
+        <p>Loren ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis mollis lectus nec accumsan. In at diam ornare, congue sapien sed, scelerisque purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris scelerisque vel sem eget blandit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis id ante ac metus scelerisque suscipit.</p>
+    </section>
+
+    <section class="program-tabs"> <!--Sektion med faner for hver dag-->
+        <div class="day-tabs"> <!--Faner for at skifte mellem dagene-->
+        <button type="button" class="day-tab active" data-day="day1">Dag 1</button> <!--Den første fane er aktiv ved indlæsning-->
+        <button type="button" class="day-tab" data-day="day2">Dag 2</button> <!--De andre faner er inaktive ved indlæsning-->
+        <button type="button" class="day-tab" data-day="day3">Dag 3</button> <!--De andre faner er inaktive ved indlæsning-->
+        </div>
+
+        <div class="tab-content">
+            <section id="day1" class="day-panel active"> <!-- section har to klasser; .day-panel og .day-panel.active-->
+                <article class="artist-card">
+                    <a href="artists/calvin-harris/calvin-harris.html"> <!-- Artist/#-->
+                        <img src="artists/calvin-harris/calvin harris.jpg" alt="Calvin Harris">
+                    </a> <!-- Klik på billedet for at åbne artistens side -->
+                    <h3>Calvin Harris</h3>  
+                </article>
+                <article class="artist-card">
+                    <a href="artists/kesi/kesi.html">
+                        <img src="artists/kesi/kesi.jfif" alt="Kesi">
+                    </a>
+                    <h3>Kesi</h3>
+                </article>
+                <article class="artist-card">
+                    <a href="artists/artist3/artist3.html">
+                        <img src="artists/artist3/artist3.jfif" alt="#"> <!--Artist/#-->
+                    </a>
+                    <h3>Reneé Rapp</h3>
+                </article>
+                <article class="artist-card">
+                    <a href="artists/#/#"> <!-- Artist/#-->
+                        <img src="artists/#/#" alt="#">
+                    </a> 
+                    <h3>#</h3>
+                </article>
+                <article class="artist-card">
+                    <a href="artists/#/#"> <!-- Artist/#-->
+                        <img src="artists/#/#" alt="#">
+                    </a> 
+                    <h3>#</h3>
+                </article>
+                <article class="artist-card">
+                    <a href="artists/#/#"> <!-- Artist/#-->
+                        <img src="artists/#/#" alt="#">
+                    </a> 
+                    <h3>#</h3>
+                </article>
+            </section>
+            <section id="day2" class="day-panel">
+                <article class="artist-card">
+                    <a href="artists/#/#"> <!-- Artist/#-->
+                        <img src="artists/#/#" alt="#">
+                    </a> 
+                    <h3>#</h3>
+                </article>
+                <article class="artist-card">
+                    <a href="artists/#/#"> <!-- Artist/#-->
+                        <img src="artists/#/#" alt="#">
+                    </a> 
+                    <h3>#</h3>
+                </article>
+                <article class="artist-card">
+                    <a href="artists/#/#"> <!-- Artist/#-->
+                        <img src="artists/#/#" alt="#">
+                    </a> 
+                    <h3>#</h3>
+                </article>
+                <article class="artist-card">
+                    <a href="artists/#/#"> <!-- Artist/#-->
+                        <img src="artists/#/#" alt="#">
+                    </a> 
+                    <h3>#</h3>
+                </article>
+                <article class="artist-card">
+                    <a href="artists/#/#"> <!-- Artist/#-->
+                        <img src="artists/#/#" alt="#">
+                    </a> 
+                    <h3>#</h3>
+                </article>
+                <<article class="artist-card">
+                    <a href="artists/#/#"> <!-- Artist/#-->
+                        <img src="artists/#/#" alt="#">
+                    </a> 
+                    <h3>#</h3>
+                </article>
+            </section>
+
+            <section id="day3" class="day-panel">
+                <article class="artist-card">
+                    <a href="artists/#/#"> <!-- Artist/#-->
+                        <img src="artists/#/#" alt="#">
+                    </a> 
+                    <h3>#</h3>
+                </article>
+                <article class="artist-card">
+                    <a href="artists/#/#"> <!-- Artist/#-->
+                        <img src="artists/#/#" alt="#">
+                    </a> 
+                    <h3>#</h3>
+                </article>
+                <article class="artist-card">
+                    <a href="artists/#/#"> <!-- Artist/#-->
+                        <img src="artists/#/#" alt="#">
+                    </a> 
+                    <h3>#</h3>
+                </article>
+                <article class="artist-card">
+                    <a href="artists/#/#"> <!-- Artist/#-->
+                        <img src="artists/#/#" alt="#">
+                    </a> 
+                    <h3>#</h3>
+                </article>
+                <article class="artist-card">
+                    <a href="artists/#/#"> <!-- Artist/#-->
+                        <img src="artists/#/#" alt="#">
+                    </a> 
+                    <h3>#</h3>
+                </article>
+            </section>
+        </div>
+    </section>
+
+</main>
+<footer class="footer"> <!--Footer med kontaktinfo og links-->
+    <div class="footer-contact">
+    <h1> Kontakt Tre Døgn</h1>
+        <p>Sløjfevang 222</p>
+        <p>2500 Valby</p>
+        <p>+45 42 66 32 70</p>
+        <p>info@tredoegn.dk</p>
+    </div>
+    <div class="footer-about">
+    <h1>Om Tre Døgn</h1>
+        <a href="#">Praktisk info</a>
+        <a href="kontakt.html">Kontakt os</a>
+        <a href="#">Job og praktik</a>
+        <a href="om.html">Om</a>
+    </div>
+    <div class="footer-betingelser">
+    <h1>Betingelser</h1>
+        <a href="#">Handelsbetingelser</a>
+        <a href="#">Persondatapolitik</a>
+        <a href="#">Cookiepolitik</a>
+        <a href="#">Konkurrencebetingelser</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Tre Døgn All rights reserved</p>
+</footer>
+</body>
+</html>
