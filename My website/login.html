@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Sikrer at siden er responsiv og tilpasser sig forskellige skærmstørrelser -->
+    <title>Login</title>
+     <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-body"> <!--Tilføj en klasse til body for at kunne style denne side specifikt i CSS-->
+    <div class="wrapper">
+        <form action="">
+            <h1>Login</h1>
+            <div class="input-box">
+            <input type="text" placeholder="Brugernavn"  required> <!--Inputfelt for brugernavn--> <!--required attributten sikrer at feltet skal udfyldes før formularen kan indsendes-->
+            </div>
+            <div class="input-box">
+            <input type="password" placeholder="Kodeord"  required> <!--Inputfelt for kodeord--> <!--required attributten sikrer at feltet skal udfyldes før formularen kan indsendes-->
+            </div>
+            <div class="remember-forgot">
+                <label><input type="checkbox"> Husk mig</label> <!--Checkbox for at huske brugeren-->
+                <a href="#">Glemt kodeord?</a> <!--Link for at gendanne kodeord-->
+            </div>
+            <button type="submit" class="login-btn">Login</button> <!--Submit-knap for at sende formularen-->
+            <div class="register-link">
+                <p>Har du ikke en konto? <a href="#">Registrer her</a></p> <!--Link for at registrere en ny konto-->
+            </div>
+        </form>
+
+    </div>
+</body>
+
+/* START login CSS */
+
+.login-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Gør det muligt for wrapper at være i midten af siden både horisontalt og vertikalt */
+}
+
+.wrapper {
+  width: 320px;
+  font-family: "Aharoni Bold", "Aharoni", sans-serif; 
+}
+
+.wrapper h1 {
+  font-size: 36px;
+  text-align: center;
+  color:#ED5B32;
+  font-weight: 800;
+}
+
+.wrapper .input-box {
+  width: 100%;
+  height: 50px;
+  margin: 10px 0;
+}
+
+.input-box input {
+  width: 100%;
+  height: 75%;
+  border: none;
+  outline: none;
+  border: 2px solid #ED5B32;
+  border-radius: 15px;
+  font-size: 14px;
+  padding-left:10px;
+}
+
+.input-box input::placeholder {
+  color: #ed5a3290;
+  font-family: "Aharoni Bold", "Aharoni", sans-serif;
+  font-weight: 600;
+}
+
+.wrapper .remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.remember-forgot label input {
+  accent-color: white; /* Ændrer farven på checkboxen */
+}
+
+.register-link {
+  text-align: center;
+}
+.remember-forgot a, .register-link a {
+  color: #ED5B32;
+  text-decoration: none;
+}
+
+.remember-forgot a:hover, .register-link a:hover {
+  text-decoration: underline;
+}
+
+.remember-forgot a:visited, .register-link a:visited {
+  color: #ED5B32;
+}
+
+.wrapper .login-btn {
+  background-color: #ED5B32; /* Baggrundsfarve for knappen */
+  border-radius: 7px; /* Giver knappen afrundede hjørner */
+  border-color: #ED5B32; /* Giver knappen en kant i samme farve som baggrunden */
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.514); /* Giver knappen en lille skygge for at få den til at skille sig ud */
+  padding: 9px 16px; /* Øger padding for at gøre knappen større og mere iøjnefaldende */
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-weight: 750;
+  text-decoration: none; /* Fjerner understregning fra linkene */
+  color: white;
+  width: 100%;
+}
+
+  /* END login* CSS */

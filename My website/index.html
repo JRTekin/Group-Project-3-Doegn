@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Sikrer at siden er responsiv og tilpasser sig forskellige skærmstørrelser -->
+    <title>TreDoegn</title>
+     <link rel="stylesheet" href="style.css">
+     <script src="script.js"></script>
+     <script src="https://kit.fontawesome.com/6881ef30be.js" crossorigin="anonymous"></script> <!--Font Awesome for at kunne bruge ikoner i login knappen-->
+
+</head>
+
+<body>
+<header class="header"> <!--Header med logo og navigation-->
+        <nav class="navbar">   
+            <ul>
+                <li class="logo"> <!--Logoet fungerer også som link til forsiden-->
+                    <a href="index.html">
+                        <img src="symbols/logo-hvid.png" alt="Tre Døgn Logo"> <!--Logoet skal være i samme mappe som index.html for at dette virker-->
+                    </a>
+                </li>
+                <li><a class="navbar-link" href="om.html">Om</a></li>
+                <li><a class="navbar-link" href="program.html">Program</a></li>
+                <li><a class="btn" href="billet.html">Køb billet</a></li>
+                <li><i class="fa-solid fa-user" style="color: white;"></i></li>
+                <li><div class="sidebar" id="mySidebar"> <!--Sidebar navigation-->
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> <!--Knappen for at lukke siden-->
+                    <a href="billet.html">Billetter</a>
+                    <a href="program.html">Program</a>
+                    <a href="praktisk-info.html">Praktisk info</a>
+                    <a href="om.html">Om</a>
+                    </div>
+                    <div id="main">
+                        <button class="openbtn" onclick="openNav()">&#9776;</button> <!--Knappen for at åbne siden-->
+                    </div>  
+                </li>
+            </ul>
+        </nav>
+</header>
+
+</main>
+<section class="hero"> <!--Stort visuelt område-->
+    <video autoplay muted loop class="background-video">
+        <source src="media/video/13000585_1920_1080_30fps.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-content"> <!--Indhold i hero-sektionen-->
+        <h1 class="title-hero">TRE DØGN</h1>
+
+        <div id="countdown" class="countdown"> <!--Nedtælling til festivalen-->
+            <div class="unit">
+            <span id="days"></span> <!--Her vil antallet af dage blive vist via JavaScript-->
+            <p>Dage</p>
+            </div>
+
+        <div class="unit">
+            <span id="hours"></span> <!--Her vil antallet af timer blive vist via JavaScript-->
+            <p>Timer</p>
+        </div>
+
+        <div class="unit">
+            <span id="minutes"></span> <!--Her vil antallet af minutter blive vist via JavaScript-->
+            <p>Min</p>
+        </div>
+
+        <div class="unit">
+            <span id="seconds"></span> <!--Her vil antallet af sekunder blive vist via JavaScript-->
+            <p>Sek</p>
+        </div>
+        </div>
+        <div class="date-container">
+        <p><img src="symbols/calendar1.png" alt="Kalender" class="calendar-icon"></p> 
+        <p class="date-hero">17. &dash; 19. juli 2026</p>
+        </div>
+        <a href="billet.html" class="btn" id="koeb-billet">Køb billet</a> <!--Call to action knap-->
+    </div> <!--Slut på nedtælling-->
+</section>
+
+<section class="marquee"> <!--Rullebånd med kunstnere-->
+    <div class="artist-track">
+        <span> Calvin Harris   •   Kesi   •   Zara Larsson   •   Central Cee   •   Minds of 99   •   Lord Siva   •   Malu   •   Kölsch   •   Brimheim   •   kunstner   •   kunstner   •   kunstner   •   kunstner   •   kunstner   •   kunstner   •   kunstner   •   
+        </span>
+        <span> Calvin Harris   •   Kesi   •   Zara Larsson   •   Central Cee   •   Minds of 99   •   Lord Siva   •   Malu   •   Kölsch   •   Brimheim   •   kunstner   •   kunstner   •   kunstner   •   kunstner   •   kunstner   •   kunstner   •   kunstner   •   
+        </span> <!--Skaber to span så den kan loope uden at stoppe-->
+    </div>
+</section>
+
+<div class="lineup-container"> <!--Line-up for de tre dage-->
+    <div class="dag-1">
+       <h1>  Dag 1  </h1>
+       <div class="artists"> <!--Indeholder kunstnerne for dag 1-->
+           <span class="head1"> Calvin Harris </span>
+           <span class="head4"> MPH</span>
+           <span class="head4"> Lisa Fosmark</span>
+           <span class="head3"> Audrey Nuna</span>
+           <span class="head1"> Kesi</span>
+           <span class="head2"> Reneé Rapp</span>
+       </div>
+        <a href="program.html" class="cta"> <button class="btn" id="se-mere-knap">Se program</button> </a> <!--Call to action knap-->
+
+    </div>
+    <div class="dag-2">
+       <h1>  Dag 2  </h1>
+       <div class="artists"> <!--Indeholder kunstnerne for dag 2-->
+           <span class="head5"> Malu</span>
+           <span class="head1"> kunstner</span>
+           <span class="head4"> Fred again... </span>
+           <span class="head3"> Eee Gee</span>
+           <span class="head3"> kunstner</span>
+           <span class="head2"> kunstner</span>
+       </div>
+        <a href="program.html" class="cta"> <button class="btn" id="se-mere-knap">Se program</button> </a> <!--Call to action knap-->
+    </div>
+    <div class="dag-3">
+       <h1>  Dag 3  </h1>
+       <div class="artists"> <!--Indeholder kunstnerne for dag 3-->
+       <span class="head1"> kunstner </span>
+           <span class="head2"> kunstner</span>
+           <span class="head5"> August Høyen</span>
+           <span class="head3"> kunstner</span>
+           <span class="head2"> kunstner</span>
+           <span class="head3"> kunstner</span>
+
+       </div>
+        <a href="program.html" class="cta"> <button class="btn" id="se-mere-knap">Se program</button> </a> <!--Call to action knap-->
+    </div>
+</div>
+
+<section class="CTA"> <!--Call to action køb billet-->
+    <video autoplay muted loop class="clapping-video">
+        <source src="media/video/koncert-video.mp4" type="video/mp4">
+        </video>
+
+    <div class="CTA-content"> <!--Indhold i CTA-sektionen-->
+        <h1>Skal du med?</h1>
+        <a href="billet.html" class="btn" id="CTA-btn">Køb billet</a> <!--Call to action knap-->
+    </div>
+</section>
+
+<section class="om-os">
+    <img src="media/closeup-woman.jpg" alt="Billede af kvinde til koncert" class="closeup-img">
+    <div class="om-cta-text"> <!--Indhold i om os cta forside-->
+    <h1>Om os</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae leo quis risus accumsan finibus. Donec urna sapien, rutrum non rhoncus id, eleifend ac ligula.</p>
+    <a href="om.html" class="btn">Læs mere om os</a> <!--Call to action knap-->
+    </div> 
+</section>
+
+
+<footer class="footer"> <!--Footer med kontaktinfo og links-->
+    <div class="footer-contact">
+    <h1> Kontakt Tre Døgn</h1>
+        <p>Sløjfevang 222</p>
+        <p>2500 Valby</p>
+        <p>+45 42 66 32 70</p>
+        <p>info@tredoegn.dk</p>
+    </div>
+    <div class="footer-about">
+    <h1>Om Tre Døgn</h1>
+        <a href="#">Praktisk info</a>
+        <a href="kontakt.html">Kontakt os</a>
+        <a href="#">Job og praktik</a>
+        <a href="om.html">Om</a>
+    </div>
+    <div class="footer-betingelser">
+    <h1>Betingelser</h1>
+        <a href="#">Handelsbetingelser</a>
+        <a href="#">Persondatapolitik</a>
+        <a href="#">Cookiepolitik</a>
+        <a href="#">Konkurrencebetingelser</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Tre Døgn All rights reserved</p>
+</footer>
+</body>
+</html>
+
