@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Sikrer at siden er responsiv og tilpasser sig forskellige skærmstørrelser -->
+    <title>TreDoegn</title>
+     <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="login-body">
+    <!--Opret Konto form-->
+    <div class="login-container" id="login-container">
+        <div class="form-container sign-up">
+            <form action="/register" method="POST" onsubmit="return validateSignupForm()">
+                <h1>Opret konto</h1>
+                <input name="fullName" type="text" placeholder="Fulde navn" required/>
+                <input name="email" type="email" placeholder="Emailadresse" required/>
+                <input name="password" type="password" id="password" placeholder="Adgangskode" required/>
+                <input name="confirmPassword" type="password" id="confirmPassword" placeholder="Gentag adgangskode" required/>
+                
+                <!-- An element to toggle between password visibility -->
+                <div class="show-password">
+                    <input type="checkbox" onclick="myFunction()"><label>Show Password</label>
+                </div>
+                
+                <button>Opret konto</button>
+            </form>
+        </div> 
+        <div class="form-container sign-in">
+            <form action="/login" method="POST">
+                <h1>Log ind</h1>
+                <input name="email" type="email" placeholder="Emailadresse"/>
+                <input name="password" type="password" placeholder="Adgangskode"/>
+                <button>Log ind</button>
+            </form>
+        </div> 
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Velkommen!</h1>
+                     <p>Registrer dine oplysninger for at oprette en bruger</p>                   
+                    <button class="hidden" id="login">Log ind</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Velkommen tilbage!</h1>
+                    <p>Indtast dine oplysninger for at logge ind</p>
+                    <button class="hidden" id="register">Opret konto</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="login.js"></script>
+</body>
+</html>
