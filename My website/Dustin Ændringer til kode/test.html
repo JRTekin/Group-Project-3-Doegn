@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <title>Leaflet Test</title>
+
+    <!-- Leaflet CSS -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <style>
+        #map {
+            height: 400px;
+            width: 600px;
+            margin: 50px auto;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+
+<h1 style="text-align:center;">Test Leaflet</h1>
+<div id="map"></div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+    const map = L.map("map").setView([55.7829, 12.3713], 14);
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "© OpenStreetMap contributors"
+    }).addTo(map);
+
+    L.marker([55.7829, 12.3713])
+        .addTo(map)
+        .bindPopup("Værløse Flyveplads")
+        .openPopup();
+</script>
+
+</body>
+</html>
+``

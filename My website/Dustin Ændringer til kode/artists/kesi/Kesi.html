@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Sikrer at siden er responsiv og tilpasser sig forskellige skærmstørrelser -->
+    <title>TreDoegn</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../script.js" defer></script>
+</head>
+<body>
+<main>
+    <!--START NAVBAR-->
+    <header class="header"> <!--Header med logo og navigation-->
+        <nav class="navbar">   
+            <ul>
+                <li class="logo"> <!--Logoet fungerer også som link til forsiden-->
+                    <a href="../../index.html">
+                        <img src="../../symbols/logo-hvid.png" alt="Tre Døgn Logo"> <!--Logoet skal være i samme mappe som index.html for at dette virker-->
+                    </a>
+                </li>
+                <li><a class="navbar-link" href="../../om.html">Om</a></li>
+                <li><a class="navbar-link" href="../../program.html">Program</a></li>
+                <li><a class="btn" href="../../billet.html">Køb billet</a></li>
+                <li><div class="sidebar" id="mySidebar"> <!--Sidebar navigation-->
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> <!--Knappen for at lukke siden-->
+                    <a href="../../billet.html">Billetter</a>
+                    <a href="../../program.html">Program</a>
+                    <a href="../../praktisk.html">Praktisk info</a>
+                    <a href="../../om.html">Om</a>
+                    </div>
+                    <div id="main">
+                        <button class="openbtn" onclick="openNav()">&#9776;</button> <!--Knappen for at åbne siden-->
+                    </div>  
+                </li>
+            </ul>
+        </nav>
+    </header>
+<!--END NAVBAR-->
+
+<section class="artist-detail"> <!--Sektion for artistens detaljer-->
+    <div class="artist-detail-container">
+        <div class="artist-image-container">
+        <img src="./kesi.jfif" alt="Kesi"> <!--"." betyder samme mappe som denne HTML-fil-->
+        <img src="./kesi2.jfif" alt="Kesi på scenen"> <!--"." betyder samme mappe som denne HTML-fil-->
+        <img src="./kesi3.jfif" alt="Kesi"> <!--"." betyder samme mappe som denne HTML-fil-->
+        <img src="./kesi4.jpg" alt="Kesi hopper på scenen"> <!--"." betyder samme mappe som denne HTML-fil-->
+ 
+    </div>
+        <div class="artist-detail-text">
+            <h1>Kesi</h1> <!--Artistens navn-->
+            <h2>Dag 1 - 17/7 - Fredag</h2> <!--Dag og scene for artistens optræden-->
+
+<p></p>Kesi er en af Danmarks mest streamede pop- og hiphopkunstnere og kendt for sin
+evne til at samle publikum gennem fællessang og stærk energi.
+
+<p>
+Hans koncerter kombinerer moderne produktion, nærvær og direkte kontakt med publikum,
+hvilket gør ham til et oplagt hovednavn på Tre Døgns åbningsdag.
+            <h3>Hør artistens top hits her:</h3>
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/2d7AMvzFwh5wUTuqQl3BAE?utm_source=generator&theme=0" width="100%" height="412" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <a href="../../program.html" class="btn">Tilbage til program</a>        
+        </div>
+    </div>
+</section>
+
+</main>
+<footer class="footer"> <!--Footer med kontaktinfo og links-->
+    <div class="footer-contact">
+    <h1> Kontakt Tre Døgn</h1>
+        <p>Sløjfevang 222</p>
+        <p>2500 Valby</p>
+        <p>+45 42 66 32 70</p>
+        <p>info@tredoegn.dk</p>
+    </div>
+    <div class="footer-about">
+    <h1>Om Tre Døgn</h1>
+        <a href="../../praktisk.html">Praktisk info</a>
+        <a href="../../kontakt.html">Kontakt os</a>
+        <a href="../../#">Job og praktik</a>
+        <a href="../../om.html">Om</a>
+    </div>
+    <div class="footer-betingelser">
+    <h1>Betingelser</h1>
+        <a href="../../#">Handelsbetingelser</a>
+        <a href="../../#">Persondatapolitik</a>
+        <a href="../../#">Cookiepolitik</a>
+        <a href="../../#">Konkurrencebetingelser</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Tre Døgn All rights reserved</p>
+</footer>
+</body>
+</html>

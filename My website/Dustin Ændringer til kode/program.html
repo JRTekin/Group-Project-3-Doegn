@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program – Tre Døgn</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<!-- START NAVBAR -->
+<header class="header">
+    <nav class="navbar">   
+        <ul>
+            <li class="logo">
+                <a href="index.html">
+                    <img src="symbols/logo-hvid.png" alt="Tre Døgn Logo">
+                </a>
+            </li>
+            <li><a class="navbar-link" href="om.html">Om</a></li>
+            <li><a class="navbar-link" href="program.html">Program</a></li>
+            <li><a class="btn" href="billet.html">Køb billet</a></li>
+            <li>
+                <div class="sidebar" id="mySidebar">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="billet.html">Billetter</a>
+                    <a href="program.html">Program</a>
+                    <a href="praktisk-info.html">Praktisk info</a>
+                    <a href="om.html">Om</a>
+                </div>
+                <div id="main">
+                    <button class="openbtn" onclick="openNav()">&#9776;</button>
+                </div>  
+            </li>
+        </ul>
+    </nav>
+</header>
+<!-- END NAVBAR -->
+
+<main>
+
+<section class="program-intro">
+    <h1>Program</h1>
+    <p>
+        Her finder du overblik over hvilke kunstnere der spiller på Tre Døgn.
+        Programmet er fordelt over tre dage med tre nøje udvalgte navne pr. dag.
+    </p>
+</section>
+
+<section class="program-tabs">
+
+    <div class="day-tabs">
+        <button type="button" class="day-tab active" data-day="day1">Dag 1</button>
+        <button type="button" class="day-tab" data-day="day2">Dag 2</button>
+        <button type="button" class="day-tab" data-day="day3">Dag 3</button>
+    </div>
+
+    <div class="tab-content">
+
+        <!-- ========= DAG 1 ========= -->
+        <section id="day1" class="day-panel active">
+
+            <article class="artist-card">
+                <a href="artists/calvin-harris/calvin-harris.html">
+                    <img src="artists/calvin-harris/calvin harris.jpg" alt="Calvin Harris">
+                </a>
+                <h3>Calvin Harris</h3>
+            </article>
+
+            <article class="artist-card">
+                <a href="artists/kesi/kesi.html">
+                    <img src="artists/kesi/kesi.jfif" alt="Kesi">
+                </a>
+                <h3>Kesi</h3>
+            </article>
+
+            <article class="artist-card">
+                <a href="artists/artist3/artist3.html">
+                    <img src="artists/gorillaz/img1.jpg" alt="Gorillaz">
+                </a>
+                <h3>Gorillaz</h3>
+            </article>
+
+        </section>
+
+        <!-- ========= DAG 2 ========= -->
+        <section id="day2" class="day-panel">
+
+            <article class="artist-card">
+                <a href="artists/artist4/artist4.html">
+                    <img src="artists/fred-again/fred-again.jpg" alt="Fred again..">
+                </a>
+                <h3>Fred again..</h3>
+            </article>
+
+            <article class="artist-card">
+                <a href="artists/artist5/artist5.html">
+                    <img src="artists/malu/malu.jpg" alt="Ella Augusta">
+                </a>
+                <h3>Ella Augusta</h3>
+            </article>
+
+            <article class="artist-card">
+                <a href="artists/artist6/artist6.html">
+                    <img src="artists/eee-gee/eee-gee.jpg" alt="Eee Gee">
+                </a>
+                <h3>Eee Gee</h3>
+            </article>
+
+        </section>
+
+        <!-- ========= DAG 3 ========= -->
+        <section id="day3" class="day-panel">
+
+            <article class="artist-card">
+                <a href="artists/artist7/artist7.html">
+                    <img src="artists/central-cee/central-cee.jpg" alt="Central Cee">
+                </a>
+                <h3>Central Cee</h3>
+            </article>
+
+            <article class="artist-card">
+                <a href="artists/artist8/artist8.html">
+                    <img src="artists/minds-of-99/minds-of-99.jpg" alt="Minds of 99">
+                </a>
+                <h3>Minds of 99</h3>
+            </article>
+
+            <article class="artist-card">
+                <a href="artists/artist9/artist9.html">
+                    <img src="artists/august-hojen/august-hojen.jpg" alt="August Højen">
+                </a>
+                <h3>August Højen</h3>
+            </article>
+
+        </section>
+
+    </div>
+</section>
+
+</main>
+
+<footer class="footer">
+    <div class="footer-contact">
+        <h1>Kontakt Tre Døgn</h1>
+        <p>Sløjfevang 222</p>
+        <p>2500 Valby</p>
+        <p>+45 42 66 32 70</p>
+        <p>info@tredoegn.dk</p>
+    </div>
+
+    <div class="footer-about">
+        <h1>Om Tre Døgn</h1>
+        <a href="praktisk-info.html">Praktisk info</a>
+        <a href="kontakt.html">Kontakt os</a>
+        <a href="#">Job og praktik</a>
+        <a href="om.html">Om</a>
+    </div>
+
+    <div class="footer-betingelser">
+        <h1>Betingelser</h1>
+        <a href="#">Handelsbetingelser</a>
+        <a href="#">Persondatapolitik</a>
+        <a href="#">Cookiepolitik</a>
+        <a href="#">Konkurrencebetingelser</a>
+    </div>
+
+    <p class="footer-copy">&copy; 2026 Tre Døgn All rights reserved</p>
+</footer>
+
+</body>
+</html>

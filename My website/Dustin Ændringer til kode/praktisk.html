@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktisk information – Tre Døgn</title>
+
+    <!-- Global styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/6881ef30be.js" crossorigin="anonymous"></script>
+
+    <!-- Page-specific styling -->
+    <style>
+        /* ===============================
+           TYPOGRAFI – TRE DØGN
+        =============================== */
+        body,
+        p,
+        a,
+        button,
+        input,
+        textarea {
+            font-family: "Aharoni Bold", "Aharoni", sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        .program-intro h1,
+        .program-intro h2,
+        .praktisk-card h2,
+        .footer h1 {
+            font-family: "Aharoni Bold", "Aharoni", sans-serif;
+        }
+
+        /* ===============================
+           PRAKTISK GRID
+        =============================== */
+        .praktisk-grid {
+            max-width: 1200px;
+            margin: 4rem auto 6rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .praktisk-card {
+            background: #f6f2ee;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .praktisk-card h2 {
+            margin: 0 0 1rem 0;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #e85c2f;
+        }
+
+        .praktisk-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0.4rem 0;
+            color: #1f1f1f;
+        }
+
+        .praktisk-card iframe {
+            margin-top: 1.5rem;
+            width: 100%;
+            height: 260px;
+            border: none;
+            border-radius: 14px;
+        }
+
+        /* ===============================
+           RESPONSIVE
+        =============================== */
+        @media (max-width: 1000px) {
+            .praktisk-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+            .praktisk-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="header">
+    <nav class="navbar">
+        <ul>
+            <li class="logo">
+                <a href="index.html">
+                    <img src="symbols/logo-hvid.png" alt="Tre Døgn Logo">
+                </a>
+            </li>
+            <li><a class="navbar-link" href="om.html">Om</a></li>
+            <li><a class="navbar-link" href="program.html">Program</a></li>
+            <li><a class="btn" href="billet.html">Køb billet</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <!-- INTRO -->
+    <section class="program-intro">
+        <h1>Praktisk information</h1>
+        <p>
+            Her finder du al praktisk information før og under Tre Døgn.
+            Festivalen afholdes på Flyvestation Værløse og byder på tre dage
+            med musik, fællesskab og liveoplevelser.
+        </p>
+    </section>
+
+    <!-- 3×3 INFO GRID -->
+    <section class="praktisk-grid">
+
+        <article class="praktisk-card">
+            <h2>Transport</h2>
+            <p>
+                Vi anbefaler offentlig transport, cykel eller samkørsel.
+                Der vil være tydelig skiltning fra stationer og parkeringsområder.
+            </p>
+        </article>
+
+        <article class="praktisk-card">
+            <h2>Indgang</h2>
+            <p>
+                Adgang sker via officielle indgange.
+                Billetter og armbånd kontrolleres ved alle indgange.
+            </p>
+        </article>
+
+        <article class="praktisk-card">
+            <h2>Sikkerhed</h2>
+            <p>
+                Sikkerhedspersonale og førstehjælp er til stede
+                på hele festivalområdet under alle koncerter.
+            </p>
+        </article>
+
+        <article class="praktisk-card">
+            <h2>Mad</h2>
+            <p>
+                Madboder tilbyder vegetariske, veganske og klassiske
+                festivalretter med dagligt varieret udvalg.
+            </p>
+        </article>
+
+        <article class="praktisk-card">
+            <h2>Drikkevarer</h2>
+            <p>
+                Barer findes over hele pladsen.
+                Medbragte drikkevarer er ikke tilladt af sikkerhedshensyn.
+            </p>
+        </article>
+
+        <article class="praktisk-card">
+            <h2>Betaling</h2>
+            <p>
+                Tre Døgn er kontantløs.
+                Vi accepterer betalingskort og MobilePay.
+            </p>
+        </article>
+
+        <article class="praktisk-card">
+            <h2>Kontakt</h2>
+            <p>
+                Kontakt os på <strong>info@tredoegn.dk</strong>.
+                Under festivalen kan du få hjælp i informationsboden.
+            </p>
+        </article>
+
+        <article class="praktisk-card">
+            <h2>Adresse</h2>
+            <p>
+                Flyvestation Værløse<br>
+                Flyvestationsvej<br>
+                3500 Værløse
+            </p>
+            <p>
+                Følg skiltningen på ankomstruterne.
+            </p>
+        </article>
+
+        <article class="praktisk-card">
+            <h2>Lokation</h2>
+            <p>
+                Festivalpladsen ligger centralt i det tidligere
+                flyvestationsområde omgivet af åbne naturområder.
+            </p>
+            <iframe
+                src="https://www.openstreetmap.org/export/embed.html?bbox=12.34%2C55.77%2C12.39%2C55.82&layer=mapnik&marker=55.78%2C12.36">
+            </iframe>
+        </article>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="footer-contact">
+        <h1>Kontakt Tre Døgn</h1>
+        <p>Sløjfevang 222</p>
+        <p>2500 Valby</p>
+        <p>+45 42 66 32 70</p>
+        <p>info@tredoegn.dk</p>
+    </div>
+
+    <div class="footer-about">
+        <h1>Om Tre Døgn</h1>
+        <a href="praktisk-info.html">Praktisk info</a>
+        <a href="kontakt.html">Kontakt os</a>
+        <a href="#">Job og praktik</a>
+        <a href="om.html">Om</a>
+    </div>
+
+    <div class="footer-betingelser">
+        <h1>Betingelser</h1>
+        <a href="#">Handelsbetingelser</a>
+        <a href="#">Persondatapolitik</a>
+        <a href="#">Cookiepolitik</a>
+        <a href="#">Konkurrencebetingelser</a>
+    </div>
+
+    <p class="footer-copy">&copy; 2026 Tre Døgn – All rights reserved</p>
+</footer>
+
+</body>
+</html>
+``
