@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Sikrer at siden er responsiv og tilpasser sig forskellige skærmstørrelser -->
+    <title>TreDoegn</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+     <script src="{{ url_for('static', filename='script.js') }}"></script>
+     <script src="https://kit.fontawesome.com/6881ef30be.js" crossorigin="anonymous"></script> <!--Font Awesome for at kunne bruge ikoner i login knappen-->
+</head>
+
+<body>
+    <main>
+        <!--START NAVBAR-->
+        <header class="header"> <!--Header med logo og navigation-->
+        <nav class="navbar">   
+            <ul>
+                <li class="logo"> <!--Logoet fungerer også som link til forsiden-->
+                    <a href="/">
+                        <img src="{{ url_for('static', filename='symbols/logo-hvid.png') }}" alt="Tre Døgn Logo"> <!--Logoet skal være i samme mappe som index.html for at dette virker-->
+                    </a>
+                </li>
+                <li><a class="navbar-link" href="/program">Program</a></li>
+                <li><a class="btn" href="/products">Køb billet</a></li>
+                <li>
+                    <a class="login-link" href="/profile">
+                        <i class="fa-solid fa-user" id="show-login" style="color: white;"></i>
+                    </a></li>
+                <li><div class="sidebar" id="mySidebar"> <!--Sidebar navigation-->
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> <!--Knappen for at lukke siden-->
+                    <a href="/products">Billetter</a>
+                    <a href="/program">Program</a>
+                    <a href="/praktisk">Praktisk info</a>
+                    <a href="/om">Om</a>
+                    <a href="/kontakt">Kontakt</a>
+                    <a href="/frivillig">Frivillig</a>
+                    </div>
+                    <div id="main">
+                        <button class="openbtn" onclick="openNav()">&#9776;</button> <!--Knappen for at åbne siden-->
+                    </div>  
+                </li>
+            </ul>
+        </nav>
+        </header>
+        <!--END NAVBAR-->
+
+        <section class="artist-detail"> <!--Sektion for artistens detaljer-->
+            <div class="artist-detail-container">
+                <div class="artist-image-container">
+                    <img src="{{ url_for('static', filename='media/Gorillaz1.jpg') }}" alt="Gorillaz"> <!--Billederne ligger i samme mappe som denne HTML-fil-->
+                    <img src="{{ url_for('static', filename='media/Gorillaz2.jpg') }}" alt="Gorillaz"> <!--Billederne ligger i samme mappe som denne HTML-fil-->
+                    <img src="{{ url_for('static', filename='media/Gorillaz3.jpg') }}" alt="Gorillaz"> <!--Billederne ligger i samme mappe som denne HTML-fil-->
+
+                </div>
+                <div class="artist-detail-text">
+                    <h1>Gorillaz</h1>
+                    <h2>Dag 1 - 17/7 - Fredag</h2>
+
+                    <p>
+                        Gorillaz er et af de mest unikke og banebrydende projekter i moderne musik. Skabt af Damon
+                        Albarn og kunstneren Jamie Hewlett i 1998, blev Gorillaz lanceret som et virtuel band bestående
+                        af de animerede karakterer 2D, Murdoc, Noodle og Russel. Kombinationen af musik, visuel kunst og
+                        fortælling har gjort Gorillaz til et globalt kultfænomen, der konstant udfordrer grænserne for,
+                        hvad et band kan være.
+
+                        Musikalsk bevæger Gorillaz sig frit mellem genrer som alternative rock, hiphop, elektronisk,
+                        dub, pop og world music, og netop den genreblandende tilgang har skabt nogle af de mest ikoniske
+                        tracks i 00&#39;erne og frem. Bandet står bag hits som “Clint Eastwood”, “Feel Good Inc.”, “DARE”,
+                        “On Melancholy Hill”, “Dirty Harry”, “Stylo”, “Saturnz Barz” og “Humility”; sange der både har
+                        defineret deres æstetik og sat nye standarder for hybrid&ndash;pop.
+                    </p>
+
+                    <p>
+                        Gorillaz er kendt for deres stærke samarbejder med artister som De La Soul, Del the Funky
+                        Homosapien, Little Simz, Kali Uchis, Beck, Vince Staples og mange flere. Hvert album føles som
+                        et nyt kapitel i et levende, visuelt univers, hvor musikken og karaktererne udvikler sig side om
+                        side.
+
+                        Live er Gorillaz en oplevelse i sig selv: en blanding af animationer, visuals, et stort liveband
+                        og gæstevokaler, der tilsammen skaber en koncertoplevelse, der er lige så meget kunst som musik.
+                        Deres shows er kendt for at være både energiske, eksperimenterende og dybt stemningsfulde.
+                    </p>
+
+                    <h3>Hør artistens top hits her:</h3>
+
+                    <iframe data-testid="embed-iframe" style="border-radius:12px"
+                        src="https://open.spotify.com/embed/artist/3AA28KZvwAUcZuOKwyblJQ?theme=0" width="100%"
+                        height="412" frameborder="0"
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy">
+                    </iframe>
+                    <a href="/program" class="btn">Tilbage til program</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer class="footer"> <!--Footer med kontaktinfo og links-->
+    <div class="footer-contact">
+    <h1> Kontakt Tre Døgn</h1>
+        <p>Sløjfevang 222</p>
+        <p>2500 Valby</p>
+        <p>+45 42 66 32 70</p>
+        <p>info@tredoegn.dk</p>
+    </div>
+    <div class="footer-about">
+    <h1>Om Tre Døgn</h1>
+        <a href="/praktisk">Praktisk info</a>
+        <a href="/kontakt">Kontakt os</a>
+        <a href="/frivillig">Frivillig</a>
+        <a href="/om">Om</a>
+    </div>
+    <div class="footer-betingelser">
+    <h1>Betingelser</h1>
+        <a href="/handelsbetingelser">Handelsbetingelser</a>
+        <a href="/persondata">Persondatapolitik</a>
+        <a href="/cookiepolitik">Cookiepolitik</a>
+        <a href="/konkurrencebetingelser">Konkurrencebetingelser</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Tre Døgn All rights reserved</p>
+</footer>
+</body>
+
+</html>

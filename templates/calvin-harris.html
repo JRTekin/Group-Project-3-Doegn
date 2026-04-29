@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Sikrer at siden er responsiv og tilpasser sig forskellige skærmstørrelser -->
+    <title>TreDoegn</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+     <script src="{{ url_for('static', filename='script.js') }}"></script>
+     <script src="https://kit.fontawesome.com/6881ef30be.js" crossorigin="anonymous"></script> <!--Font Awesome for at kunne bruge ikoner i login knappen-->
+</head>
+
+<body>
+    <main>
+        <!--START NAVBAR-->
+        <header class="header"> <!--Header med logo og navigation-->
+        <nav class="navbar">   
+            <ul>
+                <li class="logo"> <!--Logoet fungerer også som link til forsiden-->
+                    <a href="/">
+                        <img src="{{ url_for('static', filename='symbols/logo-hvid.png') }}" alt="Tre Døgn Logo"> <!--Logoet skal være i samme mappe som index.html for at dette virker-->
+                    </a>
+                </li>
+                <li><a class="navbar-link" href="/program">Program</a></li>
+                <li><a class="btn" href="/products">Køb billet</a></li>
+                <li>
+                    <a class="login-link" href="/profile">
+                        <i class="fa-solid fa-user" id="show-login" style="color: white;"></i>
+                    </a></li>
+                <li><div class="sidebar" id="mySidebar"> <!--Sidebar navigation-->
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> <!--Knappen for at lukke siden-->
+                    <a href="/products">Billetter</a>
+                    <a href="/program">Program</a>
+                    <a href="/praktisk">Praktisk info</a>
+                    <a href="/om">Om</a>
+                    <a href="/kontakt">Kontakt</a>
+                    <a href="/frivillig">Frivillig</a>
+                    </div>
+                    <div id="main">
+                        <button class="openbtn" onclick="openNav()">&#9776;</button> <!--Knappen for at åbne siden-->
+                    </div>  
+                </li>
+            </ul>
+        </nav>
+</header>
+        <!--END NAVBAR-->
+
+        <section class="artist-detail"> <!--Sektion for artistens detaljer-->
+            <div class="artist-detail-container">
+                <div class="artist-image-container">
+                    <img src="{{ url_for('static', filename='media/calvinharris.jpg') }}" alt="Calvin Harris"> <!--"." betyder samme mappe som denne HTML-fil-->
+                    <img src="{{ url_for('static', filename='media/calvinharris2.jpg') }}" alt="Calvin Harris"> <!--"." betyder samme mappe som denne HTML-fil-->
+                    <img src="{{ url_for('static', filename='media/calvinharris3.jpg') }}" alt="Calvin Harris"> <!--"." betyder samme mappe som denne HTML-fil-->
+                    <img src="{{ url_for('static', filename='media/calvinharris4.png') }}" alt="Calvin Harris kigger på publikum">
+
+                </div>
+                <div class="artist-detail-text">
+                    <h1>Calvin Harris</h1> <!--Artistens navn-->
+                    <h2>Dag 1 - 17/7 - Fredag</h2> <!--Dag og scene for artistens optræden-->
+                    <p>
+                        Calvin Harris er en af de mest succesfulde producere og DJs i moderne pop og elektronisk musik.
+                        Han står bag en lang række globale hits, der har domineret både radio, streaming og klubscener
+                        verden over. Hans lyd er kendetegnet ved stærke melodier, store vokalfeatures og produktioner,
+                        der rammer bredt fra EDM&ndash;drops til pophooks, der sætter sig fast med det samme.
+                        Han har skabt nogle af de største dance&ndash; og pophits i nyere tid, bl.a. “We Found Love”,
+                        “This Is
+                        What You Came For”, “One Kiss”, “Summer”, “Feel So Close”, “Blame”, “How Deep Is Your Love”,
+                        “Outside” og “Promises”.
+                        Mange af hans tracks har ligget nummer 1 globalt og er blevet faste elementer på festivaler,
+                        klubber og hitlister verden over. Hans samarbejder med artister som Rihanna, Dua Lipa, Ellie
+                        Goulding og Sam Smith har cementeret ham som en af de mest indflydelsesrige producere i sin
+                        generation.
+                    </p>
+                     <p>
+                        I år gæster Calvin Harris Tre Døgn, hvor han bringer sit enorme katalog af hits og sin
+                        karakteristiske energi med sig. Publikum kan se frem til et show fyldt med de sange, der har
+                        defineret et helt årti af elektronisk pop &ndash; leveret af en af de absolut største navne på den
+                        internationale scene.
+                    </p>
+                    <h3>Hør artistens top hits her:</h3>
+                    <iframe data-testid="embed-iframe" style="border-radius:12px"
+                        src="https://open.spotify.com/embed/artist/7CajNmpbOovFoOoasH2HaY?utm_source=generator"
+                        width="100%" height="412" frameBorder="0" allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"></iframe>
+                    <a href="/program" class="btn">Tilbage til program</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer class="footer"> <!--Footer med kontaktinfo og links-->
+        <div class="footer-contact">
+            <h1> Kontakt Tre Døgn</h1>
+            <p>Sløjfevang 222</p>
+            <p>2500 Valby</p>
+            <p>+45 42 66 32 70</p>
+            <p>info@tredoegn.dk</p>
+        </div>
+        <div class="footer-about">
+            <h1>Om Tre Døgn</h1>
+            <a href="/praktisk">Praktisk info</a>
+            <a href="/kontakt">Kontakt os</a>
+            <a href="/frivillig">Frivillig</a>
+            <a href="/om">Om</a>
+        </div>
+        <div class="footer-betingelser">
+            <h1>Betingelser</h1>
+            <a href="/handelsbetingelser">Handelsbetingelser</a>
+            <a href="/persondata">Persondatapolitik</a>
+            <a href="/cookiepolitik">Cookiepolitik</a>
+            <a href="/konkurrencebetingelser">Konkurrencebetingelser</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 Tre Døgn All rights reserved</p>
+    </footer>
+</body>
+
+</html>
