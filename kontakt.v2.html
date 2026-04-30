@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tilmeld nyhedsbrev — Tre Døgn</title>
+
+  <!-- Link til din eksisterende CSS -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
+
+
+  <!-- Ikoner -->
+  <script src="https://kit.fontawesome.com/6881ef30be.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <!-- HEADER + NAVIGATION -->
+  <!-- Holder navigationen konsistent på alle sider -->
+  <header class="header">
+    <nav class="navbar">
+      <ul>
+        <li class="logo">
+          <a href="index.html">
+            <img src="symbols/logo-hvid.png" alt="Tre Døgn Logo">
+          </a>
+        </li>
+        <li><a class="navbar-link" href="om.html">Om</a></li>
+        <li><a class="navbar-link" href="program.html">Program</a></li>
+        <li><a class="navbar-link" href="kontakt.html">Tilmeld</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT WRAPPER -->
+  <main class="contact-page">
+
+    <!-- GRID LAYOUT: FORM + KONTAKTINFO -->
+    <section class="contact-grid">
+
+      <!-- NYHEDSBREV FORM -->
+      <div class="contact-form">
+        <h2>Tilmeld dig vores nyhedsbrev</h2>
+
+        <!-- Formularen bruger JS burde bruge post til backend gør IKKE -->
+        <form id="newsletterForm" method="post" action="#" novalidate>
+
+          <!-- Navn -->
+          <label for="subscriber-name">Navn</label>
+          <input id="subscriber-name" name="name" type="text" placeholder="Dit navn (valgfrit)">
+
+          <!-- Email -->
+          <label for="subscriber-email">Email</label>
+          <input id="subscriber-email" name="email" type="email" placeholder="dig@example.com" required>
+
+          <!-- Samtykke -->
+          <label class="consent">
+            <span class="checkbox-wrapper">
+              <input id="consent" name="consent" type="checkbox" required>
+              <span class="custom-checkbox"></span>
+            </span>
+            <span class="consent-text">
+              Jeg accepterer at modtage emails fra Tre Døgn og godkender privatlivspolitikken.
+            </span>
+          </label>
+
+
+          <!-- Skjult felt til backend -->
+          <input type="hidden" name="list" value="newsletter_main">
+
+          <!-- Submit -->
+          <button type="submit" class="btn">Tilmeld</button>
+        </form>
+      </div>
+
+      <!-- KONTAKTINFO -->
+      <aside class="contact-info">
+        <h2>Kontaktinformation</h2>
+
+        <p><strong>Adresse</strong><br>Solvang 123<br>6700 Amager</p>
+
+        <p><strong>Telefon</strong><br>+45 67 69 06 70</p>
+
+        <p><strong>Email</strong><br>
+          <a href="mailto:info@tredoegn.dk">info@tredoegn.dk</a>
+        </p>
+
+        <!-- Sociale medier -->
+        <h3>Følg os</h3>
+        <div class="social-links">
+          <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.x.com" target="_blank" aria-label="X">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a href="https://www.youtube.com" target="_blank" aria-label="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+
+        <!-- Åbningstider -->
+        <h3>Åbningstider</h3>
+        <p>Man–Fre: 09:00–16:00<br>Weekend: Lukket</p>
+      </aside>
+
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p class="footer-copy">&copy; 2026 Tre Døgn — Alle rettigheder forbeholdes</p>
+  </footer>
+
+  <!-- JAVASCRIPT: Håndterer formularen -->
+  <script>
+    document.getElementById('newsletterForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('subscriber-name').value.trim();
+      const email = document.getElementById('subscriber-email').value.trim();
+      const consent = document.getElementById('consent').checked;
+
+      // Simpel validering
+      if (!name || !email || !consent) {
+        alert("Udfyld venligst navn, email og accepter samtykke.");
+        return;
+      }
+
+      // Ingen backend – bare en besked
+      alert("Tak for din tilmelding!");
+
+      // Nulstil formularen
+      this.reset();
+    });
+  </script>
