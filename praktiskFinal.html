@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktisk information – Tre Døgn</title>
+
+    <!-- Global styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/6881ef30be.js" crossorigin="anonymous"></script>
+
+    <!-- Leaflet JS -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      defer
+    ></script>
+
+    <!-- Map JS -->
+    <script src="map.js" defer></script>
+
+    <style>
+        body,
+        p,
+        a,
+        button {
+            font-family: "Aharoni Bold", "Aharoni", sans-serif;
+        }
+
+        .praktisk-grid {
+            max-width: 1200px;
+            margin: 4rem auto 6rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .praktisk-card {
+            background: #f6f2ee;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .praktisk-card h2 {
+            margin-bottom: 1rem;
+            font-size: 1.35rem;
+            color: #e85c2f;
+        }
+
+        .praktisk-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #1f1f1f;
+        }
+
+        /* Leaflet map */
+        #map {
+            width: 100%;
+            height: 260px;
+            border-radius: 14px;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 1000px) {
+            .praktisk-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+            .praktisk-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="header">
+    <nav class="navbar">
+        <ul>
+            <li class="logo">
+                <a href="index.html">
+                    <img src="symbols/logo-hvid.png" alt="Tre Døgn Logo">
+                </a>
+            </li>
+            <li><a class="navbar-link" href="om.html">Om</a></li>
+            <li><a class="navbar-link" href="program.html">Program</a></li>
+            <li><a class="btn" href="billet.html">Køb billet</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+<section class="program-intro">
+    <h1>Praktisk information</h1>
+    <p>
+        Her finder du al praktisk information før og under Tre Døgn.
+        Festivalen afholdes på Flyvestation Værløse.
+    </p>
+</section>
+
+<section class="praktisk-grid">
+
+    <article class="praktisk-card">
+        <h2>Transport</h2>
+        <p>Vi anbefaler offentlig transport, cykel eller samkørsel.</p>
+    </article>
+
+    <article class="praktisk-card">
+        <h2>Indgang</h2>
+        <p>Adgang sker via officielle indgange med billet eller armbånd.</p>
+    </article>
+
+    <article class="praktisk-card">
+        <h2>Sikkerhed</h2>
+        <p>Sikkerhedspersonale og førstehjælp er til stede på hele området.</p>
+    </article>
+
+    <article class="praktisk-card">
+        <h2>Mad</h2>
+        <p>Der findes madboder med både vegetariske og klassiske retter.</p>
+    </article>
+
+    <article class="praktisk-card">
+        <h2>Drikkevarer</h2>
+        <p>Medbragte drikkevarer er ikke tilladt på festivalpladsen.</p>
+    </article>
+
+    <article class="praktisk-card">
+        <h2>Betaling</h2>
+        <p>Festivalen er kontantløs. Betal med kort eller MobilePay.</p>
+    </article>
+
+    <article class="praktisk-card">
+        <h2>Kontakt</h2>
+        <p>Kontakt os på <strong>info@tredoegn.dk</strong>.</p>
+    </article>
+
+    <article class="praktisk-card">
+        <h2>Adresse</h2>
+        <p>
+            Flyvestation Værløse<br>
+            Flyvestationsvej<br>
+            3500 Værløse
+        </p>
+    </article>
+
+    
+    <article class="praktisk-card">
+        <h2>Lokation</h2>
+        <p>
+            Festivalpladsen ligger på Flyvestation Værløse,
+            omgivet af åbne naturområder.
+        </p>
+        <div id="map"></div>
+    </article>
+
+</section>
+
+</main>
+
+<footer class="footer">
+    <p class="footer-copy">&copy; 2026 Tre Døgn – All rights reserved</p>
+</footer>
+
+</body>
+</html>
