@@ -9,7 +9,7 @@
 
 .volunteer-form,
 .volunteer-form * {
-    font-family: "Aharoni", sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 
@@ -97,13 +97,13 @@
 }
 
 .form-field label {
-    font-family: "Aharoni", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: bold;
 }
 
 .volunteer-form h2 {
-    font-family: "Aharoni", sans-serif;
-    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
 }
 
 
