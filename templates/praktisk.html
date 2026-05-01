@@ -1,24 +1,101 @@
 <!DOCTYPE html>
 <html lang="da">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Sikrer at siden er responsiv og tilpasser sig forskellige skærmstørrelser -->
-     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='praktisk.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktisk information – Tre Døgn</title>
 
-     <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- Global styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
-     <script src="script.js"></script>
-     <script src="https://kit.fontawesome.com/6881ef30be.js" crossorigin="anonymous"></script> <!--Font Awesome for at kunne bruge ikoner i login knappen-->    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/6881ef30be.js" crossorigin="anonymous"></script>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+
+    <!-- Map JS -->
+    <script src="{{ url_for('static', filename='map.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+
+
+    <style>
+        body,
+        p,
+        a,
+        button {
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .praktisk-grid {
+            max-width: 1200px;
+            margin: 4rem auto 6rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .praktisk-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .praktisk-card h2 {
+            margin-bottom: 1rem;
+            font-size: 1.35rem;
+            color: #e85c2f;
+            font-weight: 800;
+        }
+
+        .praktisk-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #1f1f1f;
+        }
+
+        /* Leaflet map */
+        #map {
+            width: 100%;
+            height: 260px;
+            border-radius: 14px;
+            margin-top: 1.5rem;
+            z-index: 3;
+        }
+
+        @media (max-width: 1000px) {
+            .praktisk-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+            .praktisk-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
-<header class="header"> <!--Header med logo og navigation-->
-        <nav class="navbar">   
+
+    <header class="header"> <!--Header med logo og navigation-->
+        <nav class="navbar">
             <ul>
                 <li class="logo"> <!--Logoet fungerer også som link til forsiden-->
                     <a href="/">
-                        <img src="{{ url_for('static', filename='symbols/logo-hvid.png') }}" alt="Tre Døgn Logo"> <!--Logoet skal være i samme mappe som index.html for at dette virker-->
+                        <img src="{{ url_for('static', filename='symbols/logo-hvid.png') }}" alt="Tre Døgn Logo">
+                        <!--Logoet skal være i samme mappe som index.html for at dette virker-->
                     </a>
                 </li>
                 <li><a class="navbar-link" href="/program">Program</a></li>
@@ -26,146 +103,140 @@
                 <li>
                     <a class="login-link" href="/profile">
                         <i class="fa-solid fa-user" id="show-login" style="color: white;"></i>
-                    </a></li>
-                <li><div class="sidebar" id="mySidebar"> <!--Sidebar navigation-->
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> <!--Knappen for at lukke siden-->
-                    <a href="/products">Billetter</a>
-                    <a href="/program">Program</a>
-                    <a href="/praktisk">Praktisk info</a>
-                    <a href="/om">Om</a>
-                    <a href="/kontakt">Kontakt</a>
-                    <a href="/job">Job og karriere</a>
+                    </a>
+                </li>
+                <li>
+                    <div class="sidebar" id="mySidebar"> <!--Sidebar navigation-->
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <!--Knappen for at lukke siden-->
+                        <a href="/products">Billetter</a>
+                        <a href="/program">Program</a>
+                        <a href="/praktisk">Praktisk info</a>
+                        <a href="/om">Om os</a>
+                        <a href="/kontakt">Kontakt</a>
+                        <a href="/frivillig">Frivillig</a>
                     </div>
                     <div id="main">
                         <button class="openbtn" onclick="openNav()">&#9776;</button> <!--Knappen for at åbne siden-->
-                    </div>  
+                    </div>
                 </li>
             </ul>
         </nav>
-</header>
+    </header>
 
-<main>
+    <main>
 
-    <!-- INTRO -->
-    <section class="program-intro">
-        <h1>Praktisk information</h1>
-        <p>
-            Her finder du al praktisk information før og under Tre Døgn.
-            Festivalen afholdes på Flyvestation Værløse og byder på tre dage
-            med musik, fællesskab og liveoplevelser.
-        </p>
-    </section>
-
-    <!-- 3×3 INFO GRID -->
-    <section class="praktisk-grid">
-
-        <article class="praktisk-card">
-            <h2>Transport</h2>
+        <section class="program-intro">
+            <h1>Praktisk information</h1>
             <p>
-                Vi anbefaler offentlig transport, cykel eller samkørsel.
-                Der vil være tydelig skiltning fra stationer og parkeringsområder.
+                Her finder du al praktisk information før og under Tre Døgn.
+                Festivalen afholdes på Flyvestation Værløse.
             </p>
-        </article>
+        </section>
 
-        <article class="praktisk-card">
-            <h2>Indgang</h2>
-            <p>
-                Adgang sker via officielle indgange.
-                Billetter og armbånd kontrolleres ved alle indgange.
-            </p>
-        </article>
+        <section class="praktisk-grid">
 
-        <article class="praktisk-card">
-            <h2>Sikkerhed</h2>
-            <p>
-                Sikkerhedspersonale og førstehjælp er til stede
-                på hele festivalområdet under alle koncerter.
-            </p>
-        </article>
+            <article class="praktisk-card">
+                <h2>Transport</h2>
+                <p>Vi anbefaler offentlig transport, cykel eller samkørsel.</p>
+                <p>Kommer du fra hovedstadsområdet kan du tage busforbindelserne 512R og 617S og s-tog med C-linjen og H-linjen til Måløv station. Derfra
+                    er ruten skiltet hen til indgangen af Tre Døgn.</p>
+                <p>Kommer du i bil, er der rige muligheder for at parkere midligertidigt lige ude foran festivalpladsen.
+                    Det er IKKE tilladt at parkere på festivalpladsen. Der er muligheder for at parkere i omegnen.</p>
+            </article>
 
-        <article class="praktisk-card">
-            <h2>Mad</h2>
-            <p>
-                Madboder tilbyder vegetariske, veganske og klassiske
-                festivalretter med dagligt varieret udvalg.
-            </p>
-        </article>
+            <article class="praktisk-card">
+                <h2>Indgang</h2>
+                <p>Adgang sker via officielle indgange med billet eller armbånd.</p>
+                <p>Der er skiltet mod Tre Døgns indgange i omegnen, så du kan komme nemt og sikkert mod festivallen.</p>
+                <p>Der er stillet personale til rådighed til at vejlede jer det rette sted hen</p>
+            </article>
 
-        <article class="praktisk-card">
-            <h2>Drikkevarer</h2>
-            <p>
-                Barer findes over hele pladsen.
-                Medbragte drikkevarer er ikke tilladt af sikkerhedshensyn.
-            </p>
-        </article>
+            <article class="praktisk-card">
+                <h2>Sikkerhed</h2>
+                <p>Sikkerhedspersonale og førstehjælp er til stede på hele området.</p>
+                <p>I tilfælde af hjælp til festivalen, ring til vores sikkerhedspersonale: <strong>888</strong></p>
+                <p>I tilfælde af nødsituation kan der ringes til alarmcentralen: <strong>112</strong></p>
 
-        <article class="praktisk-card">
-            <h2>Betaling</h2>
-            <p>
-                Tre Døgn er kontantløs.
-                Vi accepterer betalingskort og MobilePay.
-            </p>
-        </article>
+            </article>
 
-        <article class="praktisk-card">
-            <h2>Kontakt</h2>
-            <p>
-                Kontakt os på <strong>info@tredoegn.dk</strong>.
-                Under festivalen kan du få hjælp i informationsboden.
-            </p>
-        </article>
+            <article class="praktisk-card">
+                <h2>Mad</h2>
+                <p>Der findes madboder med både vegetariske og klassiske retter.</p>
+                <p>Alle boder er sat op langs flyvebanen</p>
+            </article>
 
-        <article class="praktisk-card">
-            <h2>Adresse</h2>
-            <p>
-                Flyvestation Værløse<br>
-                Flyvestationsvej<br>
-                3500 Værløse
-            </p>
-            <p>
-                Følg skiltningen på ankomstruterne.
-            </p>
-        </article>
+            <article class="praktisk-card">
+                <h2>Drikkevarer</h2>
+                <p>Medbragte drikkevarer er ikke tilladt på festivalpladsen, det er dog altid muligt at få en
+                    forfriskelse på festivalpladsen.</p>
+            </article>
 
-        <article class="praktisk-card">
-            <h2>Lokation</h2>
-            <p>
-                Festivalpladsen ligger centralt i det tidligere
-                flyvestationsområde omgivet af åbne naturområder.
-            </p>
-            <iframe
-                src="https://www.openstreetmap.org/export/embed.html?bbox=12.34%2C55.77%2C12.39%2C55.82&layer=mapnik&marker=55.78%2C12.36">
-            </iframe>
-        </article>
+            <article class="praktisk-card">
+                <h2>Betaling</h2>
+                <p>Festivalen er kontantløs. Betal med kort eller MobilePay.</p>
+                <p>Der tages imod MasterCard, Visa/Dankort, Visa Electron, Maestro.</p>
+                <p>Alle former for kontaktløs betaling kan bruges.</p>
+            </article>
 
-    </section>
+            <article class="praktisk-card">
+                <h2>Kontakt</h2>
+                <p>Har du nogle spørgsmål inden eller under festivalen, så kan du kontakte os på:</p>
+                <p>Mail:<strong>info@tredoegn.dk</strong>.</p>
+                <p>Telefonnummer: <strong>+45 42 66 32 70</strong></p>
+                <p>OBS! Under festivalen opfordrer vi at spørge vores personale. Vi sidder dog også klar til at svare via mail og telefon.</p>
+                <p><strong>Åbningstider UDENFOR festivalen:</strong></p>
+                <p>Man&ndash;Fre: 09:00&ndash;16:00<br>Weekend: Lukket</p>
+            </article>
 
-</main>
+            <article class="praktisk-card">
+                <h2>Adresse</h2>
+                <p>
+                    Flyvestation Værløse<br>
+                    Flyvestationsvej<br>
+                    3500 Værløse
+                </p>
+            </article>
 
-<footer class="footer"> <!--Footer med kontaktinfo og links-->
-    <div class="footer-contact">
-    <h1> Kontakt Tre Døgn</h1>
-        <p>Sløjfevang 222</p>
-        <p>2500 Valby</p>
-        <p>+45 42 66 32 70</p>
-        <p>info@tredoegn.dk</p>
-    </div>
-    <div class="footer-about">
-    <h1>Om Tre Døgn</h1>
-        <a href="/praktisk">Praktisk info</a>
-        <a href="/kontakt">Kontakt os</a>
-        <a href="/frivillig">Frivillig</a>
-        <a href="/om">Om</a>
-    </div>
-    <div class="footer-betingelser">
-    <h1>Betingelser</h1>
-        <a href="/handelsbetingelser">Handelsbetingelser</a>
-        <a href="/persondata">Persondatapolitik</a>
-        <a href="/cookiepolitik">Cookiepolitik</a>
-        <a href="/konkurrencebetingelser">Konkurrencebetingelser</a>
-    </div>
-    <p class="footer-copy">&copy; 2026 Tre Døgn All rights reserved</p>
-</footer>
+
+            <article class="praktisk-card">
+                <h2>Lokation</h2>
+                <p>
+                    Festivalpladsen ligger på Flyvestation Værløse,
+                    omgivet af åbne naturområder.
+                </p>
+                <div id="map"></div>
+            </article>
+
+        </section>
+
+    </main>
+
+    <footer class="footer"> <!--Footer med kontaktinfo og links-->
+        <div class="footer-contact">
+            <h1> Kontakt Tre Døgn</h1>
+            <p>Sløjfevang 222</p>
+            <p>2500 Valby</p>
+            <p>+45 42 66 32 70</p>
+            <p>info@tredoegn.dk</p>
+        </div>
+        <div class="footer-about">
+            <h1>Om Tre Døgn</h1>
+            <a href="/praktisk">Praktisk info</a>
+            <a href="/kontakt">Kontakt os</a>
+            <a href="/frivillig">Frivillig</a>
+            <a href="/om">Om os</a>
+        </div>
+        <div class="footer-betingelser">
+            <h1>Betingelser</h1>
+            <a href="#">Handelsbetingelser</a>
+            <a href="#">Persondatapolitik</a>
+            <a href="#">Cookiepolitik</a>
+            <a href="#">Konkurrencebetingelser</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 Tre Døgn All rights reserved</p>
+    </footer>
 
 </body>
+
 </html>

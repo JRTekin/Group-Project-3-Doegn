@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html lang="da">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tilmeld nyhedsbrev — Tre Døgn</title>
 
-    <!-- Link til din eksisterende CSS -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tilmeld nyhedsbrev — Tre Døgn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+  <!-- Link til din eksisterende CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='kontakt.css') }}">
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
-
-    <!-- Ikoner -->
-    <script src="https://kit.fontawesome.com/6881ef30be.js" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='script.js') }}" ></script>
+  <!-- Ikoner -->
+  <script src="https://kit.fontawesome.com/6881ef30be.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <!-- HEADER + NAVIGATION -->
-    <!-- Holder navigationen konsistent på alle sider -->
-    <header class="header"> <!--Header med logo og navigation-->
-        <nav class="navbar">   
+
+  <!-- HEADER + NAVIGATION -->
+  <!-- Holder navigationen konsistent på alle sider -->
+  <header class="header"> <!--Header med logo og navigation-->
+        <nav class="navbar">
             <ul>
                 <li class="logo"> <!--Logoet fungerer også som link til forsiden-->
                     <a href="/">
-                        <img src="{{ url_for('static', filename='symbols/logo-hvid.png') }}" alt="Tre Døgn Logo"> <!--Logoet skal være i samme mappe som index.html for at dette virker-->
+                        <img src="{{ url_for('static', filename='symbols/logo-hvid.png') }}" alt="Tre Døgn Logo">
+                        <!--Logoet skal være i samme mappe som index.html for at dette virker-->
                     </a>
                 </li>
                 <li><a class="navbar-link" href="/program">Program</a></li>
@@ -30,129 +35,133 @@
                 <li>
                     <a class="login-link" href="/profile">
                         <i class="fa-solid fa-user" id="show-login" style="color: white;"></i>
-                    </a></li>
-                <li><div class="sidebar" id="mySidebar"> <!--Sidebar navigation-->
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> <!--Knappen for at lukke siden-->
-                    <a href="/products">Billetter</a>
-                    <a href="/program">Program</a>
-                    <a href="/praktisk">Praktisk info</a>
-                    <a href="/om">Om</a>
-                    <a href="/kontakt">Kontakt</a>
-                    <a href="/frivillig">Frivillig</a>
+                    </a>
+                </li>
+                <li>
+                    <div class="sidebar" id="mySidebar"> <!--Sidebar navigation-->
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <!--Knappen for at lukke siden-->
+                        <a href="/products">Billetter</a>
+                        <a href="/program">Program</a>
+                        <a href="/praktisk">Praktisk info</a>
+                        <a href="/om">Om os</a>
+                        <a href="/kontakt">Kontakt</a>
+                        <a href="/frivillig">Frivillig</a>
                     </div>
                     <div id="main">
                         <button class="openbtn" onclick="openNav()">&#9776;</button> <!--Knappen for at åbne siden-->
-                    </div>  
+                    </div>
                 </li>
             </ul>
         </nav>
-</header>
+    </header>
+
+  <!-- MAIN CONTENT WRAPPER -->
+  <main class="contact-page">
+
+    <!-- GRID LAYOUT: FORM + KONTAKTINFO -->
+    <section class="contact-grid">
+
+      <!-- NYHEDSBREV FORM -->
+      <div class="contact-form">
+        <h2>Tilmeld dig vores nyhedsbrev</h2>
+
+        <!-- Formularen bruger JS burde bruge post til backend gør IKKE -->
+        <form id="newsletterForm" method="post" action="#" novalidate>
+
+          <!-- Navn -->
+          <label for="subscriber-name">Navn</label>
+          <input id="subscriber-name" name="name" type="text" placeholder="Dit navn (valgfrit)">
+
+          <!-- Email -->
+          <label for="subscriber-email">Email</label>
+          <input id="subscriber-email" name="email" type="email" placeholder="dig@example.com" required>
+
+          <!-- Samtykke -->
+          <label class="consent">
+            <span class="checkbox-wrapper">
+              <input id="consent" name="consent" type="checkbox" required>
+              <span class="custom-checkbox"></span>
+            </span>
+            <span class="consent-text">
+              Jeg accepterer at modtage emails fra Tre Døgn og godkender privatlivspolitikken.
+            </span>
+          </label>
 
 
-    <!-- MAIN CONTENT WRAPPER -->
-    <main class="contact-page">
+          <!-- Skjult felt til backend -->
+          <input type="hidden" name="list" value="newsletter_main">
 
-        <!-- GRID LAYOUT: FORM + KONTAKTINFO -->
-        <section class="contact-grid">
+          <!-- Submit -->
+          <button type="submit" class="btn-tilmeld">Tilmeld</button>
+        </form>
+      </div>
 
-            <!-- NYHEDSBREV FORM -->
-            <div class="contact-form">
-                <h2>Tilmeld dig vores nyhedsbrev</h2>
+      <!-- KONTAKTINFO -->
+      <aside class="contact-info">
+        <h2>Kontaktinformation</h2>
 
-                <!-- Formularen bruger JS til at sende POST til backend -->
-                <form id="newsletterForm" method="post" action="#" novalidate>
+        <p><strong>Adresse</strong><br>Sløjfevang 222<br>2500 Valby</p>
 
-                    <!-- Navn -->
-                    <label for="subscriber-name">Navn</label>
-                    <input id="subscriber-name" name="name" type="text" placeholder="Dit navn (valgfrit)">
+        <p><strong>Telefon</strong><br>+45 42 66 32 70</p>
 
-                    <!-- Email -->
-                    <label for="subscriber-email">Email</label>
-                    <input id="subscriber-email" name="email" type="email" placeholder="dig@example.com" required>
+        <p><strong>Email</strong><br>
+          <a href="mailto:info@tredoegn.dk">info@tredoegn.dk</a>
+        </p>
 
-                    <!-- Samtykke -->
-                    <label class="consent">
-                        <span class="checkbox-wrapper">
-                            <input id="consent" name="consent" type="checkbox" required>
-                            <span class="custom-checkbox"></span>
-                        </span>
-                        <span class="consent-text">
-                            Jeg accepterer at modtage emails fra Tre Døgn og godkender privatlivspolitikken.
-                        </span>
-                    </label>
+        <!-- Sociale medier -->
+        <h3>Følg os</h3>
+        <div class="social-links">
+          <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.x.com" target="_blank" aria-label="X">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a href="https://www.youtube.com" target="_blank" aria-label="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
 
+        <!-- Åbningstider -->
+        <h3>Åbningstider</h3>
+        <p>Man&ndash;Fre: 09:00&ndash;16:00<br>Weekend: Lukket</p>
+      </aside>
 
-                    <!-- Skjult felt til backend -->
-                    <input type="hidden" name="list" value="newsletter_main">
+    </section>
+  </main>
 
-                    <!-- Submit -->
-                    <button type="submit" class="btn tilmeld">Tilmeld</button>
-                </form>
-            </div>
+  <!-- FOOTER -->
+  <footer class="footer"> <!--Footer med kontaktinfo og links-->
+        <div class="footer-contact">
+            <h1> Kontakt Tre Døgn</h1>
+            <p>Sløjfevang 222</p>
+            <p>2500 Valby</p>
+            <p>+45 42 66 32 70</p>
+            <p>info@tredoegn.dk</p>
+        </div>
+        <div class="footer-about">
+            <h1>Om Tre Døgn</h1>
+            <a href="/praktisk">Praktisk info</a>
+            <a href="/kontakt">Kontakt os</a>
+            <a href="/frivillig">Frivillig</a>
+            <a href="/om">Om os</a>
+        </div>
+        <div class="footer-betingelser">
+            <h1>Betingelser</h1>
+            <a href="#">Handelsbetingelser</a>
+            <a href="#">Persondatapolitik</a>
+            <a href="#">Cookiepolitik</a>
+            <a href="#">Konkurrencebetingelser</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 Tre Døgn All rights reserved</p>
+    </footer>
 
-            <!-- KONTAKTINFO -->
-            <aside class="contact-info">
-                <h2>Kontaktinformation</h2>
+    <script src="{{ url_for('static', filename='kontakt.js') }}" ></script>
+  </body>
+  </html>
 
-                <p><strong>Adresse</strong><br>Sløjfevang 222<br>2500 Valby</p>
-
-                <p><strong>Telefon</strong><br>+45 42 66 32 70</p>
-
-                <p><strong>Email</strong><br>
-                    <a href="mailto:info@tredoegn.dk">info@tredoegn.dk</a>
-                </p>
-
-                <!-- Sociale medier -->
-                <h3>Følg os</h3>
-                <div class="social-links">
-                    <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
-                    <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="https://www.x.com" target="_blank" aria-label="X">
-                        <i class="fa-brands fa-x-twitter"></i>
-                    </a>
-                    <a href="https://www.youtube.com" target="_blank" aria-label="YouTube">
-                        <i class="fa-brands fa-youtube"></i>
-                    </a>
-                </div>
-
-                <!-- Åbningstider -->
-                <h3>Åbningstider</h3>
-                <p>Man–Fre: 09:00–16:00<br>Weekend: Lukket</p>
-            </aside>
-
-        </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="footer"> <!--Footer med kontaktinfo og links-->
-    <div class="footer-contact">
-    <h1> Kontakt Tre Døgn</h1>
-        <p>Sløjfevang 222</p>
-        <p>2500 Valby</p>
-        <p>+45 42 66 32 70</p>
-        <p>info@tredoegn.dk</p>
-    </div>
-    <div class="footer-about">
-    <h1>Om Tre Døgn</h1>
-        <a href="/praktisk">Praktisk info</a>
-        <a href="/kontakt">Kontakt os</a>
-        <a href="/frivillig">Frivillig</a>
-        <a href="/om">Om</a>
-    </div>
-    <div class="footer-betingelser">
-    <h1>Betingelser</h1>
-        <a href="/handelsbetingelser">Handelsbetingelser</a>
-        <a href="/persondata">Persondatapolitik</a>
-        <a href="/cookiepolitik">Cookiepolitik</a>
-        <a href="/konkurrencebetingelser">Konkurrencebetingelser</a>
-    </div>
-    <p class="footer-copy">&copy; 2026 Tre Døgn All rights reserved</p>
-</footer>
-
-    <script src="{{ url_for('static', filename='kontakt.js') }}"></script>
-</body>
-</html>
+  
