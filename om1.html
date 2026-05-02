@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Sikrer at siden er responsiv og tilpasser sig forskellige skærmstørrelser -->
+    <title>TreDoegn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="https://kit.fontawesome.com/6881ef30be.js" crossorigin="anonymous"></script>
+    <!--Font Awesome for at kunne bruge ikoner i login knappen-->
+</head>
+
+<body>
+    <!--START NAVBAR-->
+    <header class="header"> <!--Header med logo og navigation-->
+        <nav class="navbar">
+            <ul>
+                <li class="logo"> <!--Logoet fungerer også som link til forsiden-->
+                    <a href="/">
+                        <img src="{{ url_for('static', filename='symbols/logo-hvid.png') }}" alt="Tre Døgn Logo">
+                        <!--Logoet skal være i samme mappe som index.html for at dette virker-->
+                    </a>
+                </li>
+                <li><a class="navbar-link" href="/program">Program</a></li>
+                <li><a class="btn" href="/products">Køb billet</a></li>
+                <li>
+                    <a class="login-link" href="/profile">
+                        <i class="fa-solid fa-user" id="show-login" style="color: white;"></i>
+                    </a>
+                </li>
+                <li>
+                    <div class="sidebar" id="mySidebar"> <!--Sidebar navigation-->
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <!--Knappen for at lukke siden-->
+                        <a href="/products">Billetter</a>
+                        <a href="/program">Program</a>
+                        <a href="/praktisk">Praktisk info</a>
+                        <a href="/om">Om os</a>
+                        <a href="/kontakt">Kontakt</a>
+                        <a href="/frivillig">Frivillig</a>
+                    </div>
+                    <div id="main">
+                        <button class="openbtn" onclick="openNav()">&#9776;</button> <!--Knappen for at åbne siden-->
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!--END NAVBAR-->
+    <main>
+        <section class="om-container">
+            <section class="om-intro">
+                <div class="om-intro-text">
+                    <h1>Om Tre Døgn</h1>
+                    <p>Tre Døgn er en moderne musikfestival skabt med ambitionen om at samle mennesker om stærke
+                        live&ndash;oplevelser og et fællesskab, der mærkes helt ud i natten. Vi arbejder for at skabe en
+                        festival, hvor både etablerede stjerner og nye talenter får plads på scenerne, og hvor publikum
+                        kan opleve musik på tværs af genrer og udtryk. Vores team brænder for at skabe en atmosfære,
+                        hvor nærvær, energi og kvalitet går hånd i hånd.
+                    </p>
+                </div>
+            </section>
+            <section class="om-vision-mission">
+                <img src="{{ url_for('static', filename='media/crowd3.jpg') }}"
+                    alt="Publikum med hænderne oppe til koncert">
+                <div class="om-vision-mission-text">
+                    <h2>Vision og mission</h2>
+                    <p>Tre Døgn er for alle dem, der gerne vil en ung festival, hvor der er fokus på musikken og de fede
+                        fester. Ved at holde Tre Døgn myndig, vores lokation og de fantastiske frivillige ønsker vi at
+                        skabe en tryg festival for alle vores gæster.
+                    </p>
+                    <p>Med vores Grønne Døgn mission vil vi samtidig skabe en bæredygtig festival, så de yngre
+                        generation også for glæde af Tre Døgn, når det bliver deres tur.</p>
+                </div>
+            </section>
+
+            <section class="om-bæredygtighed">
+                <div class="om-bæredygtighed-text">
+                    <h2>Bæredygtighed</h2>
+                    <p>Tre Døgn er stolte af vores Grønne døgn mission, hvor vi har sat som mål at genbruge alt der
+                        bliver efterladt. Det sker i samarbejde med vores stærke frivillige team og vores valg af
+                        bæredygtige materialer til alle vores produkter. Desuden bliver vores luksustelte genbrugt så
+                        vidt muligt, så hvis der skrives en hilsen på teltdugen, kan den læses igen næste år.</p>
+                </div>
+                <img src="{{ url_for('static', filename='media/crowd2.jpg') }}" alt="Publikum der smiler til kameraet">
+            </section>
+
+            <section class="om-musik">
+                <img src="{{ url_for('static', filename='media/crowd.jpg') }}" alt="Publikum der smiler til kameraet">
+                <div class="om-musik-text">
+                    <h2>Musik og oplevelse</h2>
+                    <p>På 3 Døgn finder vi sammen et program, der passer til alle. Uanset Om du er til en 1-, 2- eller
+                        3- døgns fest, er en fed musikoplevelse garanteret alle Tre Døgn. Vi inviterer kun de største
+                        kunstnere i verden til at headline. Fordi vi er en dansk festival glemmer vi heller ikke vores
+                        musik fra baggården og vi diskriminerer ikke i genrer, så længe det er de største hits. </p>
+                    <p>Så tag et kig på vores programoversigt og så ses vi i Tre Døgn!</p>
+                    <a class="btn" href="/program">Se program</a> <!--Call to action knap-->
+                </div>
+            </section>
+
+            <section class="om-praktisk">
+                <div class="om-praktisk-text">
+                    <h2>Praktisk info</h2>
+                    <p>Her kan du blandt andet finde yderligere information om:</p>
+                    <ul>
+                        <li>Tre Døgns lokation.</li>
+                        <li>Vores sikkerhedspersonale, der kan kontaktes på <strong>888</strong>.</li>
+                        <li>Transport mulighederne</li>
+                    </ul>
+                    <a class="btn" href="/praktisk">Se praktisk info</a> <!--Call to action knap-->
+                </div>
+                <img src="{{ url_for('static', filename='media/crowd4.jpg') }}" alt="Campingområde med gæsternes telte">
+            </section>
+        </section>
+    </main>
+</body>
+
+
+<footer class="footer"> <!--Footer med kontaktinfo og links-->
+    <div class="footer-contact">
+        <h1> Kontakt Tre Døgn</h1>
+        <p>Sløjfevang 222</p>
+        <p>2500 Valby</p>
+        <p>+45 42 66 32 70</p>
+        <p>info@tredoegn.dk</p>
+    </div>
+    <div class="footer-about">
+        <h1>Om Tre Døgn</h1>
+        <a href="/praktisk">Praktisk info</a>
+        <a href="/kontakt">Kontakt os</a>
+        <a href="/frivillig">Frivillig</a>
+        <a href="/om">Om os</a>
+    </div>
+    <div class="footer-betingelser">
+        <h1>Betingelser</h1>
+        <a href="#">Handelsbetingelser</a>
+        <a href="#">Persondatapolitik</a>
+        <a href="#">Cookiepolitik</a>
+        <a href="#">Konkurrencebetingelser</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Tre Døgn All rights reserved</p>
+</footer>
+
+</html>
