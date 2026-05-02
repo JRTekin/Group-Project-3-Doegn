@@ -602,6 +602,22 @@ footer {
 /*End footer CSS */
 
 /* START Om CSS */
+/* FIXES FOR MAC/WINDOWS RES */
+html {
+  font-size: 20px;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, li {
+  font-family: "Montserrat", sans-serif;
+}
+
+input, textarea, select {
+  font-size: 20px;
+  line-height: 2.0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+/*END Fixes*/
 .om-intro {
   position: relative;
   margin: 0;
