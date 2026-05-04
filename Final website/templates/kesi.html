@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Sikrer at siden er responsiv og tilpasser sig forskellige skærmstørrelser -->
+    <title>TreDoegn</title>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+     <script src="{{ url_for('static', filename='script.js') }}"></script>
+     <script src="https://kit.fontawesome.com/6881ef30be.js" crossorigin="anonymous"></script> <!--Font Awesome for at kunne bruge ikoner i login knappen-->
+</head>
+
+<body>
+    <main>
+        <!--START NAVBAR-->
+        <header class="header"> <!--Header med logo og navigation-->
+        <nav class="navbar">   
+            <ul>
+                <li class="logo"> <!--Logoet fungerer også som link til forsiden-->
+                    <a href="/">
+                        <img src="{{ url_for('static', filename='symbols/logo-hvid.png') }}" alt="Tre Døgn Logo"> <!--Logoet skal være i samme mappe som index.html for at dette virker-->
+                    </a>
+                </li>
+                <li><a class="navbar-link" href="/program">Program</a></li>
+                <li><a class="btn" href="/products">Køb billet</a></li>
+                <li>
+                    <a class="login-link" href="/profile">
+                        <i class="fa-solid fa-user" id="show-login" style="color: white;"></i>
+                    </a></li>
+                <li><div class="sidebar" id="mySidebar"> <!--Sidebar navigation-->
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> <!--Knappen for at lukke siden-->
+                    <a href="/products">Billetter</a>
+                    <a href="/program">Program</a>
+                    <a href="/praktisk">Praktisk info</a>
+                    <a href="/om">Om os</a>
+                    <a href="/kontakt">Kontakt</a>
+                    <a href="/frivillig">Frivillig</a>
+                    </div>
+                    <div id="main">
+                        <button class="openbtn" onclick="openNav()">&#9776;</button> <!--Knappen for at åbne siden-->
+                    </div>  
+                </li>
+            </ul>
+        </nav>
+        </header>
+        <!--END NAVBAR-->
+
+        <section class="artist-detail"> <!--Sektion for artistens detaljer-->
+            <div class="artist-detail-container">
+                <div class="artist-image-container">
+                    <img src="{{ url_for('static', filename='media/kesi.jfif') }}" alt="Kesi"> <!--"." betyder samme mappe som denne HTML-fil-->
+                    <img src="{{ url_for('static', filename='media/kesi2.jfif') }}" alt="Kesi på scenen"> <!--"." betyder samme mappe som denne HTML-fil-->
+                    <img src="{{ url_for('static', filename='media/kesi3.jfif') }}" alt="Kesi"> <!--"." betyder samme mappe som denne HTML-fil-->
+                    <img src="{{ url_for('static', filename='media/kesi4.jpg') }}" alt="Kesi hopper på scenen">
+                    <!--"." betyder samme mappe som denne HTML-fil-->
+
+                </div>
+                <div class="artist-detail-text">
+                    <h1>Kesi</h1> <!--Artistens navn-->
+                    <h2>Dag 1 - 17/7 - Fredag</h2> <!--Dag og scene for artistens optræden-->
+                    <p>
+                        Kesi er en af de mest markante stemmer i moderne dansk urbanmusik og en central figur i
+                        udviklingen af den bølge, der har formet dansk hiphop og pop det sidste årti. Han slog igennem
+                        som helt ung med energiske grime&ndash;inspirerede tracks og har siden udviklet en lyd, der kombinerer
+                        rap, melodiske hooks og varme, dansable produktioner.
+
+                        Med hits som “Søvnløs”, “Mamacita”, “Kom Over”, “Følelsen”, “Su Casa”, “Ibiza”, “Tilbage” og
+                        “Blå Himmel” har Kesi skabt et katalog, der både dominerer hitlisterne og er blevet soundtracket
+                        til danske somre, fester og klubnætter. Hans evne til at levere catchy omkvæd, stærke flows og
+                        en letgenkendelig vibe har gjort ham til en af landets mest streamede artister.
+                    </p>
+                    <p>Kesi er kendt for sin karismatiske live&ndash;energi, hvor han formår at samle publikum i et fælles
+                        løft med sing&ndash;alongs, varme beats og en sceneudstråling, der rammer både de dedikerede fans og
+                        dem, der bare elsker en god fest. Han har gennem årene været en del af det toneangivende
+                        B.O.C&ndash;kollektiv og har samarbejdet med en lang række danske topnavne, hvilket har cementeret
+                        hans position som en af de mest indflydelsesrige artister i dansk musik.</p>
+                    <h3>Hør artistens top hits her:</h3>
+                    <iframe data-testid="embed-iframe" style="border-radius:12px"
+                        src="https://open.spotify.com/embed/artist/2d7AMvzFwh5wUTuqQl3BAE?utm_source=generator&theme=0"
+                        width="100%" height="412" frameBorder="0" allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"></iframe>
+                    <a href="/program" class="btn">Tilbage til program</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer class="footer"> <!--Footer med kontaktinfo og links-->
+    <div class="footer-contact">
+    <h1> Kontakt Tre Døgn</h1>
+        <p>Sløjfevang 222</p>
+        <p>2500 Valby</p>
+        <p>+45 42 66 32 70</p>
+        <p>info@tredoegn.dk</p>
+    </div>
+    <div class="footer-about">
+    <h1>Om Tre Døgn</h1>
+        <a href="/praktisk">Praktisk info</a>
+        <a href="/kontakt">Kontakt os</a>
+        <a href="/frivillig">Frivillig</a>
+        <a href="/om">Om os</a>
+    </div>
+    <div class="footer-betingelser">
+            <h1>Betingelser</h1>
+            <a href="#">Handelsbetingelser</a>
+            <a href="#">Persondatapolitik</a>
+            <a href="#">Cookiepolitik</a>
+            <a href="#">Konkurrencebetingelser</a>
+        </div>
+    <p class="footer-copy">&copy; 2026 Tre Døgn All rights reserved</p>
+</footer>
+</body>
+
+</html>

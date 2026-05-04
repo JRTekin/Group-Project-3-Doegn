@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Sikrer at siden er responsiv og tilpasser sig forskellige skærmstørrelser -->
+    <meta name="description" content="Log ind for at købe billetter til Tre Døgn" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://kit.fontawesome.com/6881ef30be.js" crossorigin="anonymous"></script>
+    <!--Font Awesome for at kunne bruge ikoner i login knappen-->
+</head>
+
+<body class="login-body">
+    <!--Opret Konto form-->
+    <div class="login-container" id="login-container">
+        <div class="form-container sign-up">
+            <form action="/register" method="POST" onsubmit="return validateSignupForm()">
+                <h1>Opret konto</h1>
+                <input name="fullName" type="text" value="{{ fullName }}" placeholder="Fulde navn" required />
+                <input name="email" type="email" value="{{ emailReg }}" placeholder="Emailadresse" required />
+                {% if reg_error %}
+                <div style="margin:3px; color:red; font:Aharoni Bold;">{{reg_error}}</div>
+                {% endif %}
+                <input name="password" type="password" id="password" placeholder="Adgangskode" required />
+                <input name="confirmPassword" type="password" id="confirmPassword" placeholder="Gentag adgangskode"
+                    required />
+
+                <!-- An element to toggle between password visibility -->
+                <div class="show-password">
+                    <input type="checkbox" onclick="myFunction()"><label>Vis kodeord</label>
+                </div>
+
+                <button>Opret konto</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form action="/login" method="POST">
+                <h1>Log ind</h1>
+                <input name="email" type="email" value="{{ email }}" placeholder="Emailadresse" />
+                {% if mail_error %}
+                <div style="z-index:10; margin:3px; color:red; font:Aharoni Bold;">{{mail_error}}</div>
+                {% endif %}
+                <input name="password" type="password" placeholder="Adgangskode" />
+                {% if login_error %}
+                <div style="z-index:10; margin:3px; color:red; font:Aharoni Bold;">{{login_error}}</div>
+                {% endif %}
+                <a href="#">Glemt kodeord?</a>
+                <button>Log ind</button>
+                {% if reg_success %}
+                <div style="z-index:10; margin:3px; color:rgb(72, 168, 72); font:Aharoni Bold;">{{reg_success}}</div>
+                {% endif %}
+
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Velkommen!</h1>
+                    <p>Registrer dine oplysninger for at oprette en bruger</p>
+                    <button class="hidden" id="login">Log ind</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Velkommen tilbage!</h1>
+                    <p>Indtast dine oplysninger for at logge ind</p>
+                    <button class="hidden" id="register">Opret konto</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='login.js') }}"></script>
+    {% if show_register %}
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById('login-container').classList.add('active');
+        });
+    </script>
+    {% endif %}
+</body>
+
+</html>

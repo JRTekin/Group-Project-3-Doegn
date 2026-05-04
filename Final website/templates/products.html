@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Sikrer at siden er responsiv og tilpasser sig forskellige skærmstørrelser -->
+    <meta name="description" content="Calvin Harris, Kesi, xx og meget mere. Se årets program her." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="{{ url_for('static', filename='map.js') }}"></script>
+
+    <script src="https://kit.fontawesome.com/6881ef30be.js" crossorigin="anonymous"></script>
+    <!--Font Awesome for at kunne bruge ikoner i login knappen-->
+</head>
+
+<body class="products-body">
+    <!--START NAVBAR-->
+    <header class="header"> <!--Header med logo og navigation-->
+        <nav class="navbar">
+            <ul>
+                <li class="logo"> <!--Logoet fungerer også som link til forsiden-->
+                    <a href="/">
+                        <img src="{{ url_for('static', filename='symbols/logo-hvid.png') }}" alt="Tre Døgn Logo">
+                        <!--Logoet skal være i samme mappe som index.html for at dette virker-->
+                    </a>
+                </li>
+                <li><a class="navbar-link" href="/program">Program</a></li>
+                <li><a class="btn" href="/products">Køb billet</a></li>
+                <li>
+                    <a class="login-link" href="/profile">
+                        <i class="fa-solid fa-user" id="show-login" style="color: white;"></i>
+                    </a>
+                </li>
+                <li>
+                    <div class="sidebar" id="mySidebar"> <!--Sidebar navigation-->
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <!--Knappen for at lukke siden-->
+                        <a href="/products">Billetter</a>
+                        <a href="/program">Program</a>
+                        <a href="/praktisk">Praktisk info</a>
+                        <a href="/om">Om os</a>
+                        <a href="/kontakt">Kontakt</a>
+                        <a href="/frivillig">Frivillig</a>
+                    </div>
+                    <div id="main">
+                        <button class="openbtn" onclick="openNav()">&#9776;</button> <!--Knappen for at åbne siden-->
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="product-intro">
+            <h1>Billetter</h1>
+            <p>Køb dine billetter til Tre Døgn 2026 her.</p>
+            <p>Husk at tilføje en camping billet ved tilfælde af overnatning.</p>
+        </div>
+        <div class="shop-layout">
+            <div class="products"> <!--Venstre side: billetter-->
+                <!--Partoutbillet-->
+                <section class="ticket-grid single">
+                    <div class="ticket-card">
+                        <h3>Partoutbillet</h3>
+                        <p>Denne billet giver adgang til festivalpladsen all dage: fredag d. 17/7, lørdag d. 18/7 og
+                            søndag d. 19/7.</p>
+                        <p class="price">kr. 2.195,00 inkl. billetgebyr</p>
+
+                        <div class="quantity">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" value="0" min="0">
+                            <button class="qty-btn plus">+</button>
+                        </div>
+
+                        <button class="buy-btn">KØB</button>
+                    </div>
+                </section>
+
+                <h2 class="ticket-section-title">Dagsbilletter</h2>
+
+                <section class="ticket-grid dag">
+                    <!--Dagsbillet 1-->
+                    <div class="ticket-card">
+                        <h3>Fredagsbillet</h3>
+                        <p>Denne billet giver adgang til festivalpladsen fredag d. 17/7.</p>
+                        <p class="price">kr. 1.095,00 inkl. billetgebyr</p>
+
+                        <div class="quantity">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" value="0" min="0">
+                            <button class="qty-btn plus">+</button>
+                        </div>
+
+                        <button class="buy-btn">KØB</button>
+                    </div>
+
+                    <!--Dagsbillet 2-->
+                    <div class="ticket-card">
+                        <h3>Lørdagsbillet</h3>
+                        <p>Denne billet giver adgang til festivalpladsen lørdag d. 18/7.</p>
+                        <p class="price">kr. 1.095,00 inkl. billetgebyr</p>
+
+                        <div class="quantity">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" value="0" min="0">
+                            <button class="qty-btn plus">+</button>
+                        </div>
+
+                        <button class="buy-btn">KØB</button>
+                    </div>
+
+                    <!--Dagsbillet 3-->
+                    <div class="ticket-card">
+                        <h3>Søndagsbillet</h3>
+                        <p>Denne billet giver adgang til festivalpladsen søndag d. 19/7.</p>
+                        <p class="price">kr. 1.095,00 inkl. billetgebyr</p>
+
+                        <div class="quantity">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" value="0" min="0">
+                            <button class="qty-btn plus">+</button>
+                        </div>
+
+                        <button class="buy-btn">KØB</button>
+                    </div>
+                </section>
+
+                <h2 class="ticket-section-title">Camp booking</h2>
+
+                <section class="ticket-grid camp">
+                    <!--Campingbillet 1-->
+                    <div class="ticket-card">
+                        <img src="{{ url_for('static', filename='media/lille-telt2.jpg') }}"
+                            alt="Almindelig campingområde" class="ticket-img">
+                        <h3>TELTPAS - LILLE</h3>
+                        <p>Standard campingområder med 1 lille medbragt telt &#40;2 pers&#41; alle festivalens dage.</p>
+                        <p class="requirement">Kræver adgangsgivende billet til festivalen.</p>
+                        <p class="price">kr. 70,00 inkl. billetgebyr</p>
+
+                        <div class="quantity">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" value="0" min="0">
+                            <button class="qty-btn plus">+</button>
+                        </div>
+
+                        <button class="buy-btn">KØB</button>
+                    </div>
+
+                    <!--Campingbillet 2-->
+                    <div class="ticket-card">
+                        <img src="{{ url_for('static', filename='media/stor-telt2.jpg') }}"
+                            alt="Almindelig campingområde" class="ticket-img">
+                        <h3>TELTPAS - STOR</h3>
+                        <p>Standard campingområder med 1 stor medbragt telt &#40;4 pers&#41; alle festivalens dage</p>
+                        <p class="requirement">Kræver adgangsgivende billet til festivalen.</p>
+                        <p class="price">kr. 320,00 inkl. billetgebyr</p>
+
+                        <div class="quantity">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" value="0" min="0">
+                            <button class="qty-btn plus">+</button>
+                        </div>
+
+                        <button class="buy-btn">KØB</button>
+                    </div>
+
+                    <!--Campingbillet 3-->
+                    <div class="ticket-card">
+                        <img src="{{ url_for('static', filename='media/lille-telt.jpg') }}" alt="Rolig campingområde"
+                            class="ticket-img">
+                        <h3>ROLIG TELTPAS - LILLE</h3>
+                        <p>Roligt campingområde med 1 lille medbragt telt &#40;2 pers&#41; alle festivalens dage.</p>
+                        <p class="requirement">Kræver adgangsgivende billet til festivalen.</p>
+                        <p class="price">kr. 345,00 inkl. billetgebyr</p>
+
+                        <div class="quantity">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" value="0" min="0">
+                            <button class="qty-btn plus">+</button>
+                        </div>
+
+                        <button class="buy-btn">KØB</button>
+                    </div>
+
+                    <!--Campingbillet 4-->
+                    <div class="ticket-card">
+                        <img src="{{ url_for('static', filename='media/stort-telt.jpg') }}" alt="Rolig campingområde"
+                            class="ticket-img">
+                        <h3>ROLIG TELTPAS - STOR</h3>
+                        <p>Roligt campingområde med 1 stor medbragt telt &#40;4 pers&#41; alle festivalens dage.</p>
+                        <p class="requirement">Kræver adgangsgivende billet til festivalen.</p>
+                        <p class="price">kr. 570,00 inkl. billetgebyr</p>
+
+                        <div class="quantity">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" value="0" min="0">
+                            <button class="qty-btn plus">+</button>
+                        </div>
+
+                        <button class="buy-btn">KØB</button>
+                    </div>
+
+                    <!--Campingbillet 5-->
+                    <div class="ticket-card">
+                        <img src="{{ url_for('static', filename='media/comfort-telt.jpg') }}"
+                            alt="Lille comfort campingtelf" class="ticket-img">
+                        <h3>COMFORT CAMPING - LILLE</h3>
+                        <p>Deluxe foropstillet telt i roligt område all festivalens dage (2 pers).</p>
+                        <p class="included">Inkluderet:</p>
+                        <p>2 x behagelige luftamadrasser med intergreret pude</p>
+                        <p>2 x formsyede lagener</p>
+                        <p> 2 x 400g tæpper</p>
+                        <p>Adgang til gratis varme bade i området</p>
+                        <p class="requirement">Kræver adgangsgivende billet til festivalen.</p>
+                        <p class="price">kr. 1.800,00 inkl. billetgebyr</p>
+
+                        <div class="quantity">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" value="0" min="0">
+                            <button class="qty-btn plus">+</button>
+                        </div>
+
+                        <button class="buy-btn">KØB</button>
+                    </div>
+
+                    <!--Campingbillet 6-->
+                    <div class="ticket-card">
+                        <img src="{{ url_for('static', filename='media/comfort-telt-stor.jpg') }}"
+                            alt="Stort comfort campingtelt" class="ticket-img">
+                        <h3>COMFORT CAMPING - STOR</h3>
+                        <p>Deluxe foropstillet stort telt i roligt område all festivalens dage (4 pers).</p>
+                        <p class="included">Inkluderet:</p>
+                        <p>4 x behagelige luftamadrasser med intergreret pude</p>
+                        <p>4 x formsyede lagener</p>
+                        <p>4 x 400g tæpper</p>
+                        <p> 230 V stik - 2 outlets</p>
+                        <p>Adgang til gratis varme bade i området</p>
+                        <p class="requirement">Kræver adgangsgivende billet til festivalen.</p>
+                        <p class="price">kr. 4.100,00 inkl. billetgebyr</p>
+
+                        <div class="quantity">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" value="0" min="0">
+                            <button class="qty-btn plus">+</button>
+                        </div>
+
+                        <button class="buy-btn">KØB</button>
+                    </div>
+                </section>
+            </div>
+
+            <aside class="cart hidden"> <!--Højre side: kurv, content aside from the content it is placed in-->
+                <button class="clear-cart">Ryd kurv</button>
+                <h3>Din kurv</h3>
+                <div class="cart-items">
+                    <!--JS indsættbuttoner produkterne-->
+                </div>
+                <p class="cart-total">Total: 0 kr.</p>
+                <button class="checkout-btn">Gå til betaling</button>
+            </aside>
+        </div>
+    </main>
+    <footer class="footer"> <!--Footer med kontaktinfo og links-->
+        <div class="footer-contact">
+            <h1> Kontakt Tre Døgn</h1>
+            <p>Sløjfevang 222</p>
+            <p>2500 Valby</p>
+            <p>+45 42 66 32 70</p>
+            <p>info@tredoegn.dk</p>
+        </div>
+        <div class="footer-about">
+            <h1>Om Tre Døgn</h1>
+            <a href="/praktisk">Praktisk info</a>
+            <a href="/kontakt">Kontakt os</a>
+            <a href="/frivillig">Frivillig</a>
+            <a href="/om">Om os</a>
+        </div>
+        <div class="footer-betingelser">
+            <h1>Betingelser</h1>
+            <a href="#">Handelsbetingelser</a>
+            <a href="#">Persondatapolitik</a>
+            <a href="#">Cookiepolitik</a>
+            <a href="#">Konkurrencebetingelser</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 Tre Døgn All rights reserved</p>
+    </footer>
+    <script src="{{ url_for('static', filename='product.js') }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Sikrer at siden er responsiv og tilpasser sig forskellige skærmstørrelser -->
+    <meta name="description"
+        content="17. juli &dash; 19.juli. Kom med og oplev nogle af dine favorit kunstnere og upcoming hitmakers. Det er nogle dage fyldt med musik, fællesskab og høj energi." />
+    <title>TreDoegn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='newsletter.css') }}">
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="https://kit.fontawesome.com/6881ef30be.js" crossorigin="anonymous"></script>
+    <!--Font Awesome for at kunne bruge ikoner i login knappen-->
+</head>
+
+<body>
+    <header class="header"> <!--Header med logo og navigation-->
+        <nav class="navbar">
+            <ul>
+                <li class="logo"> <!--Logoet fungerer også som link til forsiden-->
+                    <a href="/">
+                        <img src="{{ url_for('static', filename='symbols/logo-hvid.png') }}" alt="Tre Døgn Logo">
+                        <!--Logoet skal være i samme mappe som index.html for at dette virker-->
+                    </a>
+                </li>
+                <li><a class="navbar-link" href="/program">Program</a></li>
+                <li><a class="btn" href="/products">Køb billet</a></li>
+                <li>
+                    <a class="login-link" href="/profile">
+                        <i class="fa-solid fa-user" id="show-login" style="color: white;"></i>
+                    </a>
+                </li>
+                <li>
+                    <div class="sidebar" id="mySidebar"> <!--Sidebar navigation-->
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <!--Knappen for at lukke siden-->
+                        <a href="/products">Billetter</a>
+                        <a href="/program">Program</a>
+                        <a href="/praktisk">Praktisk info</a>
+                        <a href="/om">Om os</a>
+                        <a href="/kontakt">Kontakt</a>
+                        <a href="/frivillig">Frivillig</a>
+                    </div>
+                    <div id="main">
+                        <button class="openbtn" onclick="openNav()">&#9776;</button> <!--Knappen for at åbne siden-->
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero"> <!--Stort visuelt område-->
+            <video autoplay muted loop class="background-video">
+                <source src="{{ url_for('static', filename='video/13000585_1920_1080_30fps.mp4') }}" type="video/mp4">
+            </video>
+
+            <div class="hero-content"> <!--Indhold i hero-sektionen-->
+                <h1 class="title-hero">TRE DØGN</h1>
+
+                <div id="countdown" class="countdown"> <!--Nedtælling til festivalen-->
+                    <div class="unit">
+                        <span id="days"></span> <!--Her vil antallet af dage blive vist via JavaScript-->
+                        <p>Dage</p>
+                    </div>
+
+                    <div class="unit">
+                        <span id="hours"></span> <!--Her vil antallet af timer blive vist via JavaScript-->
+                        <p>Timer</p>
+                    </div>
+
+                    <div class="unit">
+                        <span id="minutes"></span> <!--Her vil antallet af minutter blive vist via JavaScript-->
+                        <p>Min</p>
+                    </div>
+
+                    <div class="unit">
+                        <span id="seconds"></span> <!--Her vil antallet af sekunder blive vist via JavaScript-->
+                        <p>Sek</p>
+                    </div>
+                </div>
+                <div class="date-container">
+                    <p><img src="{{ url_for('static', filename='symbols/calendar1.png') }}" alt="Kalender"
+                            class="calendar-icon"></p>
+                    <p class="date-hero">17. &dash; 19. juli 2026</p>
+                </div>
+                <a href="/products" class="btn" id="koeb-billet">Køb billet</a> <!--Call to action knap-->
+            </div> <!--Slut på nedtælling-->
+        </section>
+
+        <section class="marquee"> <!--Rullebånd med kunstnere-->
+            <div class="artist-track">
+                <span> Calvin Harris • Kesi • August Høyen • Eee Gee • Central Cee • Ella Augusta • Gorillaz • Fred
+                    again... • The Minds og 99 •
+                </span>
+                <span> Calvin Harris • Kesi • August Høyen • Eee Gee • Central Cee • Ella Augusta • Gorillaz • Fred
+                    again... • The Minds og 99 •
+                </span> <!--Skaber to span så den kan loope uden at stoppe-->
+            </div>
+        </section>
+
+        <div class="lineup-container"> <!--Line-up for de tre dage-->
+            <div class="dag-1">
+                <h1> Dag 1 </h1>
+                <div class="artists"> <!--Indeholder kunstnerne for dag 1-->
+                    <span class="head1"> Calvin Harris </span>
+                    <span class="head3"> Gorillaz</span>
+                    <span class="head1"> Kesi</span>
+                </div>
+                <a href="/program" class="cta"> <button class="btn se-mere">Se program</button> </a>
+                <!--Call to action knap-->
+
+            </div>
+            <div class="dag-2">
+                <h1> Dag 2 </h1>
+                <div class="artists"> <!--Indeholder kunstnerne for dag 2-->
+                    <span class="head1"> Ella Augusta</span>
+                    <span class="head3"> Eee Gee</span>
+                    <span class="head2"> Fred again...</span>
+                </div>
+                <a href="/program" class="cta"> <button class="btn se-mere">Se program</button> </a>
+                <!--Call to action knap-->
+            </div>
+            <div class="dag-3">
+                <h1> Dag 3 </h1>
+                <div class="artists"> <!--Indeholder kunstnerne for dag 3-->
+                    <span class="head3"> August Høyen </span>
+                    <span class="head2"> The Minds of 99</span>
+                    <span class="head1"> Central Cee </span>
+
+                </div>
+                <a href="/program" class="cta"> <button class="btn se-mere">Se program</button> </a>
+                <!--Call to action knap-->
+            </div>
+        </div>
+
+        <section class="CTA"> <!--Call to action køb billet-->
+            <video autoplay muted loop class="clapping-video">
+                <source src="{{ url_for('static', filename='video/koncert-video.mp4') }}" type="video/mp4">
+            </video>
+            <div class="CTA-content"> <!--Indhold i CTA-sektionen-->
+                <h1>Skal du med?</h1>
+                <a href="/products" class="btn" id="CTA-btn">Køb billet</a> <!--Call to action knap-->
+            </div>
+        </section>
+
+        <section class="om-os">
+            <img src="{{ url_for('static', filename='media/closeup-woman.jpg') }}" alt="Billede af kvinde til koncert"
+                class="closeup-img">
+            <div class="om-cta-text"> <!--Indhold i om os cta forside-->
+                <h1>Om os</h1>
+                <p class="om-text-forside">Få indblik i hvem vi er, hvad der driver festivalen og vores vision og
+                    mission.</p>
+                <a href="/om" class="btn" id="læs-mere-btn">Læs mere</a> <!--Call to action knap-->
+            </div>
+        </section>
+
+        <section class="newsletter-form">
+            <h2>Tilmeld dig vores nyhedsbrev</h2>
+
+            <!-- Formularen bruger JS burde bruge post til backend gør IKKE -->
+            <form id="newsletterForm" method="post" action="#" novalidate>
+
+                <!-- Navn -->
+                <label for="subscriber-name">Navn</label>
+                <input id="subscriber-name" name="name" type="text" placeholder="Dit navn (valgfrit)">
+
+                <!-- Email -->
+                <label for="subscriber-email">Email</label>
+                <input id="subscriber-email" name="email" type="email" placeholder="dig@example.com" required>
+
+                <!-- Samtykke -->
+                <label class="consent">
+                    <span class="checkbox-wrapper">
+                        <input id="consent" name="consent" type="checkbox" required>
+                        <span class="custom-checkbox"></span>
+                    </span>
+                    <span class="consent-text">
+                        Jeg accepterer at modtage emails fra Tre Døgn og godkender privatlivspolitikken.
+                    </span>
+                </label>
+
+                <!-- Submit -->
+                <button type="submit" class="btn-tilmeld">Tilmeld</button>
+            </form>
+        </section>
+    </main>
+
+
+    <footer class="footer"> <!--Footer med kontaktinfo og links-->
+        <div class="footer-contact">
+            <h1> Kontakt Tre Døgn</h1>
+            <p>Sløjfevang 222</p>
+            <p>2500 Valby</p>
+            <p>+45 42 66 32 70</p>
+            <p>info@tredoegn.dk</p>
+        </div>
+        <div class="footer-about">
+            <h1>Om Tre Døgn</h1>
+            <a href="/praktisk">Praktisk info</a>
+            <a href="/kontakt">Kontakt os</a>
+            <a href="/frivillig">Frivillig</a>
+            <a href="/om">Om os</a>
+        </div>
+        <div class="footer-betingelser">
+            <h1>Betingelser</h1>
+            <a href="#">Handelsbetingelser</a>
+            <a href="#">Persondatapolitik</a>
+            <a href="#">Cookiepolitik</a>
+            <a href="#">Konkurrencebetingelser</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 Tre Døgn All rights reserved</p>
+    </footer>
+    <script src="{{ url_for('static', filename='newsletter.js') }}"></script>
+
+</body>
+
+</html>
