@@ -1,0 +1,1915 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F7F4EF; /* Baggrundsfarve for hele siden */
+  width: 100%;
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+img, video {
+  max-width: 100%; /* Sikrer at billeder og videoer ikke bliver bredere end deres container */
+  height: auto; /* Bevarer proportionerne på billeder og videoer */
+  object-fit: cover; /* Sikrer at billeder og videoer dækker hele deres container uden at ændre proportionerne */
+}
+
+/* default = mobile */
+.lineup-container,
+.om-os,
+footer {
+  display: flex;
+  flex-direction: column;
+}
+
+/* tablet and up */
+@media (min-width: 768px) {
+  .om-os,
+  footer {
+    flex-direction: row;
+  }
+}
+
+ /* START navbar CSS */
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.436);
+}
+
+.navbar {
+  background-color: #7AACDE; /* Baggrundsfarve for navigationen */
+  display: flex; /* Gør det muligt for elementerne at ligge på linje */
+  justify-content: space-between; /* Skubber elementerne til hver sin side */
+  align-items: center; /* Vertikal centering af navigationselementerne */
+  height: 75px; /* Fast højde for at holde navbaren small */
+}
+
+.logo {
+  margin-right: auto; /* Skubber logoet til venstre */
+  margin-right: auto; /* Skubber logoet til venstre */
+  margin-left: -20px; /* Flytter logoet lidt mere til venstre */
+}
+
+.logo img {
+  height: 65px; /* Større logo uden at øge navbar højde */
+  padding-left: 0; /* Fjerner eventuelle venstre padding */
+  display: block; /*fjerner eventuelle mellemrum under logoet */
+  width: auto; /* Bevarer logoets oprindelige proportioner */
+  max-width: 100%; /* Sikrer at logoet ikke bliver bredere end sin container */
+  margin:0; /* Fjerner eventuelle marginer omkring logoet */
+}
+
+.navbar ul {
+  list-style-type: none; /* Fjerner standard punkttegn fra listen */
+  margin: 0;
+  padding: 0; /* Fjerner standard padding */
+  display: flex; /* Gør det muligt for elementerne at ligge på linje */
+  align-items: center; /* Vertikal centering af navigationselementerne */
+  width: 100%; /* Gør navigationen fuld bredde for at skubbe elementerne til hver sin side */
+}
+
+.navbar ul li {
+  display: flex;
+  align-items: center;
+  height: 75px;
+}
+
+.navbar ul li:nth-child(5) {
+  margin-right: 15px;
+}
+
+.openbtn {
+  display: inline-flex; /* Vis knappen til at åbne sidenav på desktop */
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.navbar ul li a,.navbar .btn {
+  display: inline-block;
+  color: white; /* Tekstfarve for navigationen */
+  text-align: center; /* Centrerer teksten i linket */
+  text-decoration: none; /* Fjerner understregning fra linkene */
+  padding: 6px 14px; /* Mindre lodret padding for en kortere navbar */
+  margin-left: 8px;
+  margin-right: 8px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px; 
+  font-weight: bold;
+}
+
+.btn {
+  background-color: #ED5B32; /* Baggrundsfarve for knappen */
+  border-radius: 7px; /* Giver knappen afrundede hjørner */
+  border-color: #ED5B32; /* Giver knappen en kant i samme farve som baggrunden */
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.514); /* Giver knappen en lille skygge for at få den til at skille sig ud */
+  padding: 8px 14px; 
+  font-weight: 700;
+  text-decoration: none; /* Fjerner understregning fra linkene */
+  color:white;
+  font-family: "Montserrat", sans-serif;
+}
+
+.navbar-link:hover {
+  text-shadow: #2968A7 2px 2px 5px; /* Tilføjer en skygge til den understreget tekst */
+  transform: scale(1.15); /* Gør knappen lidt større ved hover */
+  cursor: pointer; /* Ændrer cursor til en pointer for at indikere at det er klikbart */
+} /* ændrer kun farve på Om og Program, da Køb billet er en knap */
+
+.fa-solid:hover {
+  transform: scale(1.15); /* Gør knappen lidt større ved hover */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.514); /* Giver knappen en lille skygge for at få den til at skille sig ud */
+  cursor: pointer;
+} 
+
+.btn:hover {
+  transform: scale(1.05); /* Gør knappen lidt større ved hover */
+  transition: ease 0.1s; /* Tilføjer en glidende overgangseffekt ved hover */
+  cursor: pointer;
+}
+
+#læs-mere-btn:hover {
+  transform: scale(1.05); /* Gør knappen lidt større ved hover */
+  transition: ease 0.1s; /* Tilføjer en glidende overgangseffekt ved hover */
+  cursor: pointer;
+}
+
+/* Center user icon and sidebar icon horizontally and vertically */
+.navbar li:nth-child(4),
+.navbar li:nth-child(5) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar li .fa-solid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  line-height: 1;
+  margin-left: 0;
+  margin-right: 0;
+  font-size: 30px;
+}
+
+.login-link {
+  padding:0;
+  margin:0;
+}
+/* END navbar CSS */
+
+/* START sidebar menu CSS */
+.sidebar {
+  height: 100%; /* 100% Full-height */
+  width: 300px; /* Set the width of the sidebar */
+  right: 0; /* Position the sidebar to the right */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  background-color: rgba(122, 172, 222, 0.95); /* Blå baggrundsfarve med lidt gennemsigtighed, 0,95 er for gennemsigtigheden, de andre tal er rgb-koden for farven */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transform: translateX(100%); /* Start with the sidebar hidden by moving it 100% to the right */
+  transition: transform 0.5s ease; /* 0.5 second transition effect to slide in the sidebar */
+}
+
+.sidebar.open {
+  transform: translateX(0); /*Betyder at når klassen "open" er tilføjet til sidebar, vil den blive vist ved at flytte den til sin oprindelige position (translateX(0)) */
+}
+
+/* The sidebar links */
+.sidebar a:not(.closebtn) {
+  padding: 8px 8px 8px 8px; /* Padding for the links inside the sidebar */
+  text-decoration: none; /* Remove underline from links */
+  font-family: "Montserrat", sans-serif; /* Font for the sidebar links */
+  font-size: 25px;
+  text-align: center;
+  color: white; /* Color of the sidebar links */
+  display: block; /* Make the links appear below each other */
+  transition: 0.3s; /* Transition effect for the links */
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+  color: #ED5B32;
+  transform: scale(1.05); /* Gør knappen lidt større ved hover */
+  cursor: pointer;
+}
+
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn {
+  position: absolute; /* Position the close button at the top right corner of the sidebar */
+  top: 0; /* Position the close button at the top of the sidebar */
+  right: 5px; /* Position the close button 25px from the right edge of the sidebar */
+  font-size: 36px;
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+/* The button used to open the sidebar */
+.openbtn {
+  font-size: 34px;
+  cursor: pointer; /* Pointer/hand icon on hover */
+  background-color: transparent; /* Background color of the button */
+  color: white; /* Text color of the button */
+  padding: 0; /* Padding inside the button */
+  border: none; /* Remove default border */
+  margin-left: 12px;
+  margin-right: 12px;
+  line-height: 50px; /* Center the text vertically in the navbar*/
+}
+
+.openbtn:hover {
+  transform: scale(1.05); /* Gør knappen lidt større ved hover */
+}
+
+
+/* Style for the main div containing the open button */
+#main {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* END sidebar CSS */
+
+/* START index.html CSS */
+.title-hero {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
+  font-weight: 900;
+  color: #ED5B32;
+  margin: 0;
+}
+
+.countdown {
+    display: flex;
+    gap: 10px; /* Afstand mellem enhederne */
+    justify-content: flex-start;
+    margin-left: 31px;
+    color:#ED5B32;
+}
+.countdown .unit {
+    text-align: center;
+}
+
+.countdown .unit span {
+    font-size: 55px;      /* stort tal */
+    font-weight: 800;
+    display: block;
+    line-height: 1;
+    font-family: "Montserrat", sans-serif;
+    width: 100px;   /* Fast bredde for at holde tallet centreret og stabilt */
+    text-align: center;    /* Centrerer teksten i den faste bredde */
+} /* Størrelsen og stilen på tallene i nedtællingen */
+
+.countdown .unit p {
+    margin: 5px 0 0;
+    font-size: 20px;      /* lille tekst under tallet */
+    opacity: 0.9;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+} /* Størrelsen og stilen på teksten under tallene i nedtællingen */
+
+.hero {
+    position: relative;
+    height: 100vh; /* Gør hero-sektionen så høj som hele viewporten */
+    overflow: hidden; /* Sikrer at indholdet ikke flyder uden for hero-sektionen */
+} /* Gør det muligt for videoen at være i baggrunden og for indholdet at være ovenpå */
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 39px 0 0 111px;
+  box-sizing: border-box;
+}
+
+.date-container {
+  display: flex;
+  align-items: center; /* Lodret centering af ikonet og teksten */
+  gap: 14px;
+  vertical-align: middle; /* Justerer ikonet vertikalt for at matche teksten */
+  margin: 24px 0 0 52px;
+}
+
+.date-container p {
+  margin: 0;
+}
+
+.date-hero {
+  font-size: 24px;
+  font-family: "Aptos Display","Montserrat", sans-serif;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.calendar-icon {
+    filter: invert(1); /* Inverterer farverne på ikonet for at gøre det hvidt */
+    width: 38px;
+    height: 38px;
+}
+
+.cta {
+  text-decoration: none; /* Fjerner understregning fra linket */
+}
+
+#koeb-billet {
+  display: inline-block;
+  margin: 8px 0 0 52px;
+  padding: 10px 25px;
+  font-size: 25px;
+}
+
+.background-video {
+    position: absolute; /* Gør det muligt for videoen at være i baggrunden */
+    top: 50%; /* Justerer videoens position vertikalt for at være i midten af hero-sektionen */
+    left: 50%; /* Justerer videoens position horisontalt for at være i midten af hero-sektionen */
+    width: 100%; /* Gør videoen så bred som viewporten for at dække hele baggrunden, og dækker eventuelle hvide kanter til venstre og højre */
+    max-width: 100%; /* Sikrer at videoen ikke bliver bredere end sin container */
+    height: 100%; /* Gør videoen så høj som viewporten for at dække hele baggrunden, og dækker eventuelle hvide kanter i top og bund */
+    object-fit: cover; /* Sikrer at videoen dækker hele området uden at ændre proportionerne */
+    transform: translate(-50%, -50%); /* Centrerer videoen både horisontalt og vertikalt */
+    z-index: -2;
+}
+
+.marquee {
+    width: 100%;
+    overflow: hidden; /* Skjuler teksten, der ruller uden for containeren */
+    background: #ED5B32; /* Baggrundsfarve for marquee */
+    padding: 10px 0;
+    position: relative; /*Gør det muligt for animationen at positionere sig relativt til denne container */
+    height: 10px;
+    display: flex; /* Gør det muligt for elementerne at ligge på linje */
+    align-items: center;
+}
+.artist-track {
+    display: flex; /* Gør det muligt for elementerne at ligge på linje */
+    white-space: nowrap; /* Gør det muligt for teksten at rulle på én linje */
+    animation: marquee 14s linear infinite; /*Juster hastigheden på rullingen her*/
+}
+
+.artist-track span {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "Aptos Display","Montserrat", sans-serif;
+    color: white;
+    letter-spacing: 2px;
+}
+
+/* Animationen */
+@keyframes marquee {
+    0% {
+        transform: translateX(0); 
+    } /* Startpositionen for teksten */
+    100% {
+        transform: translateX(-50%);
+    } /* Juster denne værdi for at kontrollere, hvor langt teksten ruller før den starter forfra. */
+}
+
+.lineup-container {
+  display: flex; /* Gør det muligt for elementerne at ligge på linje */
+  flex-direction: column; /* Arrangerer indholdet i en kolonne */
+  justify-content: center; /* Centrerer containeren horisontalt */
+  gap: 20px; /* Afstand mellem de tre dage */
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 20px auto 0;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+@media (min-width: 768px) {
+
+  .lineup-container {
+    flex-direction: row;
+    flex-wrap: wrap; }
+  } /* Gør det muligt for dag-1, dag-2 og dag-3 at ligge på linje på større skærme, og at de kan bryde til næste linje på mindre skærme */
+
+
+.dag-1,
+.dag-2,
+.dag-3 {
+    background-color: #E89680;
+    height: 420px;
+    border: 4px solid #DF6C4D;
+    border-radius: 60px;
+  width: 31%;   
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Skjuler eventuelt indhold, der flyder uden for containeren */
+    box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.258);
+  } /* Gør det muligt for indholdet at ligge i en kolonne og for at skubbe knappen til bunden */
+
+.dag-1 .artists, .dag-2 .artists, .dag-3 .artists {
+  display: flex;
+  flex-wrap: wrap; /* Tillader indholdet at bryde til næste linje */
+  justify-content: center; /* Centrerer kunstnerne i containeren */
+  gap: 10px 20px; /* lodret, vandret spacing */
+  max-width: 92%; /* Begrænser bredden for at holde det inden for dag-1 containeren */
+  margin: 0 auto 20px auto; /* Centrerer containeren og tilføjer margin til bunden */
+  text-align: center; /* Centrerer teksten under kunstnerne */
+  font-family: "Britannic Bold", "Britannic", sans-serif;
+  color: #F7F4EF;
+}
+
+
+.lineup-container h1 {
+    font-family: "Britannic Bold", "Britannic", sans-serif;
+    font-size: 67px;
+    color: #F7F4EF;
+    text-align: center;
+    margin-top:30px;
+    margin-bottom: 30px;
+}
+
+.dag-1 h1, .dag-2 h1, .dag-3 h1 {
+  text-shadow: #1d1d1cae 1.5px 1.5px 7px; /* Tilføjer en skygge til teksten for at få den til at skille sig ud */
+}
+.artists {
+  text-shadow: #1d1d1c6d 1.5px 1.5px 7px; /* Tilføjer en skygge til teksten for at få den til at skille sig ud */
+}
+
+.head1 {
+  font-size: 47px;
+}
+.head2 {
+  font-size: 39px;
+}
+.head3 {
+  font-size: 28px;
+}
+.head4 {
+  font-size: 25px;
+}
+.head5 {
+  font-size: 22px;
+}
+
+.btn.se-mere {
+  font-size: 18px;
+  font-weight: 800;
+  padding: 8px 20px;
+}
+
+.dag-1 > a,.dag-2 > a,.dag-3 > a {
+  display: flex; /* Gør det muligt for elementerne at ligge på linje */
+  justify-content: center;
+  width: 100%; /* linket fylder hele bredden for at blive centreret korrekt*/
+  margin-top: auto; /* Skubber knappen til bunden af containeren */
+  margin-bottom: 40px;
+} /* > a betyder at det er det første a element i dag-1, dag-2 og dag-3, som er knappen, der skal skubbes til bunden */
+
+.clapping-video {
+  position: relative; 
+  object-fit: cover; /* Sikrer at videoen dækker hele bredde uden at ændre proportionerne, Cuts overflowing content if needed */
+  padding-top:0;
+  width: 100%; /* Gør videoen så bred som viewporten for at dække hele baggrunden */
+  height: 600px; /* Gør videoen kortere så det ikke fylder meget af siden */
+  max-height: 100%; /* Sikrer at videoen ikke bliver højere end sin container */
+  max-width: 100%; /* Sikrer at videoen ikke bliver bredere end sin container */
+  z-index: -1; /* Sørger for at videoen ligger bag indholdet */
+}
+
+.CTA {
+  position: relative; /* Gør det muligt for videoen at være i baggrunden og for indholdet at være ovenpå */
+  height: 600px; /* Fast højde for CTA-sektionen for at sikre at videoen passer ind */
+  margin-top:25px;
+  margin-bottom: 25px;
+}
+
+.CTA-content {
+  position: absolute; /* Gør det muligt for indholdet at være ovenpå videoen */
+  top: 50%; /* Justerer indholdets position vertikalt for at være i midten af CTA-sektionen */
+  left: 50%; /* Justerer indholdets position horisontalt for at være i midten af CTA-sektionen */ 
+  transform: translate(-50%, -50%); /* Centrerer indholdet både horisontalt og vertikalt */
+  z-index: 100; /* Sørger for at indholdet ligger ovenpå videoen */
+  color: #ED5B32;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  padding: 20px;
+  display: flex; /* Gør det muligt for elementerne at ligge på linje */
+  flex-direction: column; /* Arrangerer indholdet i en kolonne */
+  align-items: center; /* Centrerer indholdet horisontalt */
+  justify-content: center; /* Centrerer indholdet vertikalt */
+}
+.CTA-content h1 {
+  font-size: 80px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-shadow: #1d1d1c8f 1.5px 1px 3px; /* Tilføjer en skygge til teksten for at få den til at skille sig ud */
+}
+
+#CTA-btn {
+  text-align: center;
+  font-size: 23px;
+  font-weight: 700;
+  padding: 6px 18px;
+  margin: 40px;
+  cursor: pointer;
+}
+
+.closeup-img {
+  width: 550px;
+  height: auto;
+  border-radius: 25px;
+  vertical-align: middle;
+}
+
+.om-os {
+  display: flex;
+  margin: 70px 60px;
+  gap: 70px;
+  justify-content: center;
+  align-items: center;
+}
+
+.om-cta-text {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  color: #ED5B32;
+  margin-top: -20px;
+}
+
+.om-os h1 {
+  font-size: 60px;
+  font-weight: 800;
+  margin: 0 0 20px;
+}
+.om-os p {
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0 0 30px;
+  font-style: italic;
+  max-width: 900px;
+  color: black;
+}
+ /*End index.html CSS content */
+
+/*Start footer CSS */
+footer {
+  display: flex; /* Gør det muligt for elementerne at ligge på linje */
+  flex-wrap: wrap; /* Tillader elementerne at bryde til næste linje på mindre skærme */
+  justify-content: space-evenly; 
+  background-color: #7AACDE;
+  color: white;
+  font-family: "Aptos Display","Montserrat", sans-serif;
+  font-size: 15px;
+}
+
+
+.footer-contact, .footer-about, .footer-betingelser {
+  display: flex;
+  flex-direction: column; /* Arrangerer indholdet i en kolonne */
+  align-items: flex-start; /* Justerer indholdet til venstre */
+  line-height: 1.9; /* Øger linjeafstanden for bedre læsbarhed */
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.footer h1 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.footer-contact p {
+  text-align: left;
+  margin:0;
+}
+
+.footer-copy {
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+}
+
+.footer a {
+  color: white; /* Farven på linkene i footeren */
+  text-decoration: none; /* Fjerner understregning fra linkene */
+}
+
+.footer a:hover {
+  text-decoration: underline; /* Understreger linkene ved hover */
+  cursor: pointer;
+}
+
+.footer a:visited {
+  color: white; /* Ændrer farven på linkene ved hover */
+}
+/*End footer CSS */
+
+/* START Om CSS */
+
+/* FIXES FOR MAC/WINDOWS RES */
+
+input, textarea, select {
+  font-size: 20px;
+  line-height: 2.0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, li, a, button {
+  font-family: "Montserrat", sans-serif;
+  -webkit-font-smoothing: antialiased; /* Mac fix */
+  -moz-osx-font-smoothing: grayscale;  /* Mac fix */
+}
+
+/* Buttons ens REL */
+.btn, a.button {
+  font-size: 18px;
+  padding: 12px 20px;
+  line-height: 1.3;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.om-text-forside {
+  font-size: 18px;
+  color:black;
+}
+
+#CTA-btn {
+  font-size: 22px;
+  padding: 8px 20px;
+  line-height: 1.8;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* Ens rendering af tekst i header på Mac/Windows */
+header a,
+header button,
+header nav a {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ens btn størrelse på tværs af systemer */
+header button,
+header .btn,
+header a.button {
+  padding: 12px 20px;
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+}
+/*END Fixes*/
+
+
+.om-intro {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.om-intro h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 80px;
+  font-weight: 900;
+  color: #ED5B32;
+  margin: 30px 0 20px 0;
+}
+
+.om-intro p {
+  width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  flex-direction: column;
+
+}
+
+.om-container img:not(.no-edit) {
+  width: 100%;
+  max-width: 570px;
+  margin: 30px auto;
+  height: auto; /* Bevarer proportionerne på billedet */
+  border-radius: 25px; /* Giver billedet afrundede hjørner */
+  box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.258); /* Tilføjer en skygge for at få containeren til at skille sig ud */
+
+}
+
+.om-container h2, .om-container p {
+  font-family: "Montserrat", sans-serif;
+}
+
+.om-container h2 {
+  font-size: 50px;
+  font-weight: 800;
+  color: #ED5B32;
+  margin: 30px auto;
+}
+
+.om-container p {
+  margin: 0 auto 35px;
+  font-size: 18px;
+}
+
+.om-vision-mission, .om-bæredygtighed, .om-musik, .om-praktisk {
+  display: flex;
+  flex: wrap;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  margin: auto 40px;
+}
+
+
+.om-vision-mission-text, .om-bæredygtighed-text, .om-musik-text, .om-praktisk-text {
+  display: flex;
+  flex-direction: column ;
+  align-items: center; /* Justerer indholdet til midten */
+  text-align: center;
+}
+
+.om-praktisk-text li {
+  font-family: "Montserrat", sans-serif;
+  text-align: left;
+}
+
+.om-praktisk-text ul {
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 25px;
+}
+.om-container section {
+  margin: 20px 40px;
+}
+
+.om-container .om-intro {
+  margin: 0;
+  overflow: hidden;
+  text-align:center;
+}
+
+.om-intro-text p {
+  padding: 0 25px 0 25px;
+  color: black;
+}
+.om-intro-text p {
+  font-style: italic;
+}
+
+.no-edit {
+  position: absolute; /* Gør det muligt for videoen at være i baggrunden */
+    top: 50%; /* Justerer videoens position vertikalt for at være i midten af hero-sektionen */
+    left: 50%; /* Justerer videoens position horisontalt for at være i midten af hero-sektionen */
+    width: 100vw; /* Gør introbilledet fuld bredde i viewport */
+    max-width: none; /* Tillader fuld viewport-bredde */
+    height: 100%; /* Gør videoen så høj som viewporten for at dække hele baggrunden, og dækker eventuelle hvide kanter i top og bund */
+    object-fit: cover; /* Sikrer at videoen dækker hele området uden at ændre proportionerne */
+    transform: translate(-50%, -50%); /* Centrerer videoen både horisontalt og vertikalt */
+    z-index: -2;
+}
+
+/* END Om CSS */
+
+
+
+
+
+
+/* START Program CSS */
+  /*START dag-knapper CSS*/
+.day-tabs {
+  text-align: center; /* centrerer knapperned i midten af siden */
+  margin-bottom: 50px;
+}
+
+.day-panel {
+  display: none; /* Skjuler alle dag-paneler som standard */
+}
+
+.day-panel.active {
+  display: block; /* Viser det aktive dag-panel og starter på en ny linje*/
+}
+
+.day-tab {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-right: 40px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 45px;
+  font-weight: 900;
+  color: #F4967C;
+  cursor: pointer;
+} /* Fjerner "knap looket" fra teksten, så kun tekst står tilbage og gør farven svagere når knap er inaktiv */
+
+.day-tab.active {
+  color: #ED5B32;
+  font-weight: 900;
+}
+
+.day-tab:hover {
+    transform: scale(1.10); /* Gør knappen lidt større ved hover */
+    transition: transform 0.3s ease; /* Tilføjer en glidende overgangseffekt ved hover */
+
+}
+  /* SLUT dag-knapper CSS*/
+
+.program-intro {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  
+}
+.program-intro h1 {
+  font-size: 80px;
+  color: #ED5B32;
+  font-weight: 800;
+}
+.program-intro p {
+  margin: 0 auto 50px;
+  width: 80%;
+  max-width: 80%;
+  font-size: 18px;
+}
+
+.tab-content {
+  color: #ED5B32;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  font-size: 30px;
+  margin-bottom: 50px;
+}
+
+.day-panel.active {
+  display: grid; /* creates a grid, so there's 3 artists per line */
+  grid-template-columns: repeat(3, minmax(0, 360px)); /* each column can shrink down to 0, but not exceed 360px */
+  justify-content: center; /* center the whole grid on the page */
+  justify-items: center; /* center each item within its grid cell */
+  column-gap: 24px; 
+  row-gap: 45px; /* gap between each row */
+  align-items: start; /* aligns items to the start of the grid area */
+  width: 100%; /* ensures the grid takes full width */
+  margin: 0 auto;
+}
+
+.artist-card {
+  text-align: center; /* keeps image centered */
+}
+
+.artist-card a {
+  width: min(100%,360px); /* use whichever is smaller; 100% of parent/container width or 360px - the element can grow up to 360px, but never larger.*/
+  display: block; /* Gør det muligt for elementet at tage hele bredden, så det kan blive centreret korrekt */
+  margin: 0 auto; /* centrerer elementet horisontalt */
+} /* width: min(100%,360px) has relevance because it's making the clickable area of the link match the image width */
+
+.artist-card h3 {
+  width: min(100%, 360px);
+  margin: 10px auto 0;
+  text-align: right;
+  font-size: 34px;
+  font-weight: 800;
+} /* width: min(100%,360px) has relevance, because it allows the artist name to be as wide as the image, but not wider, so it can be centered under the image*/
+
+.tab-content img {
+  width: 100%;
+  min-width: 360px;
+  min-height: 360px; /* makes sure that the picture is big enough to fill the card, and not just be a small picture in the middle of the card, but also makes sure that the picture doesn't get too big and overflow the card */
+  max-width: 360px;
+  min-height: 360px;
+}
+
+.tab-content img:hover {
+  transform: scale(1.15); /* Gør billedet lidt større ved hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Tilføjer en skygge for at få billedet til at skille sig ud ved hover */
+  transition: transform 0.8s ease, box-shadow 0.3s ease; /* Tilføjer en glidende overgangseffekt ved hover for både billede og skyggen */
+}
+
+/* END Program CSS */
+
+/* START artist detail CSS */
+.artist-detail {
+  margin-bottom: 30px;
+}
+
+.artist-detail-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 0 50px;
+}
+
+.artist-detail-container img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+.artist-image-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  flex: 0 0 400px;
+  height: auto;
+  scrollbar-color: #F7F4EF transparent; /* Farven på scrollbarens thumb og track */
+  scrollbar-width: thin; /* Gør scrollbarens bredde tyndere */
+}
+
+.artist-image-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Tilføjer en skygge for at få billedet til at skille sig ud ved hover */
+  transition: transform 0.5s ease, box-shadow 0.5s ease; /* Tilføjer en glidende overgangseffekt ved hover for både billede og skyggen */
+}
+
+.artist-detail-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  flex: 0 1 700px;
+  min-width: 0;
+  width: auto;
+  max-width: 700px;
+  margin: 0 auto; /*top/bottom: 0, left/right: auto */
+}
+
+.artist-detail-text h1 {
+  font-size: 60px;
+  color: #ED5B32;
+  font-weight: 800;
+  margin: 30px auto 20px;
+}
+
+.artist-detail-text h2 {
+  font-size: 25px;
+  color: #ED5B32;
+  font-weight: 800;
+  margin: 5px auto 20px;
+}
+
+.artist-detail-text h3 {
+  font-size: 20px;
+  color: #ED5B32;
+  font-weight: 800;
+  margin: 5px auto 20px;
+}
+
+
+.artist-detail-text p:nth-of-type(1) { /* Vælger det første p-element inden for .artist-detail-text */
+    margin: 30px auto;
+    margin-bottom: 20px;
+}
+.artist-detail-text p:nth-of-type(2) { /* Vælger det andet p-element inden for .artist-detail-text */
+  margin-bottom: 45px;
+}
+
+.artist-detail-text p {
+  width: 100%;
+  max-width: 55ch; /* Begrænser bredden på teksten for bedre læsbarhed, 55ch betyder 55 tegn bredde */
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.4;
+}
+
+.artist-detail-container iframe {
+  max-width: 80%;
+  margin-bottom: 50px;
+}
+
+.artist-detail-text .btn {
+  margin-bottom: 20px;
+}
+
+/* END artist detail CSS */
+
+
+/*LOGIN CSS START*/
+.login-body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.login-container {
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
+  width: 768px;
+  max-width: 100%;
+  height: 480px;
+}
+
+.login-container p {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+  margin: 20px 0;
+}
+
+.login-container a {
+  color: #767373;
+  font-size: 13px;
+  text-decoration: none;
+  margin: 15px 0 10px;
+}
+
+.form-container h1 {
+  color: #ED5B32;
+  font-weight: 800;
+  font-size: 40px;
+}
+.login-container button {
+  background-color: #ED5B32;
+  color: #fff;
+  font-size: 12px;
+  padding: 10px 35px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.form-container a:hover {
+  text-decoration: underline;
+  color: #7AACDE;
+}
+
+.login-container button.hidden {
+  background-color: transparent;
+  border-color: #fff;
+}
+
+.login-container form {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px;
+  height: 100%;
+}
+
+.login-container input {
+  background-color: #eee;
+  border: none;
+  margin: 8px 0;
+  padding: 10px 15px;
+  font-size: 13px;
+  border-radius: 8px;
+  width: 100%;
+  outline: none;
+}
+
+.show-password {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;              /* space between checkbox and text */
+    font-size: 12px;       /* makes the text smaller */
+    margin: 6px 0 12px;    /* spacing above and below */
+    transform: translateY(3px);
+}
+
+
+.show-password input[type="checkbox"] {
+    width: 12px;
+    height: 12px;
+    padding:0 ;
+    margin: 0;
+    transform: translateY(-1px); /* nudges it up slightly */
+}
+
+.show-password input[type="checkbox"]:hover {
+  cursor: pointer;
+}
+
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+}
+
+.sign-in {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+.login-container.active .sign-in {
+  transform: translateX(100%);
+}
+
+.sign-up {
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+
+.login-container.active .sign-up {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+  animation: move 0.6s;
+}
+
+@keyframes move {
+  0%, 49.99% {
+    opacity: 0;
+    z-index: 1;
+  }
+  50%, 100% {
+    opacity: 1;
+    z-index: 5;
+  }
+}
+
+.toggle-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out;
+  border-radius: 100px 0 0 100px;
+  z-index: 1000;
+}
+
+.login-container.active .toggle-container{
+  transform: translateX(-100%);
+  border-radius: 0 150px 100px 0;
+}
+
+.toggle {
+  display: flex;
+  background-color: #7AACDE;
+  height: 100%;
+  color: #fff;
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+
+.login-container.active .toggle {
+  transform: translateX(50%);
+}
+
+.toggle-panel {
+  width: 50%;
+  height: 100%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 30px;
+  text-align: center;
+  top: 0;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+
+.toggle-left {
+  transform: translateX(-200%);
+}
+
+.login-container.active .toggle-left{
+  transform: translateX(0);
+}
+
+.toggle-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+.login-container.active .toggle-right{
+  transform: translateX(200%);
+}
+
+.toggle-panel h1 {
+  font-weight: 700;
+}
+
+.toggle-panel p {
+  font-weight: 400;
+}
+
+/*LOGIN CSS SLUT*/
+
+/* PRODUCT CSS START */
+
+  /*Main layout*/
+  .shop-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px; /* left flexible, right fixed */
+  gap: 2rem;
+  padding: 2rem;
+  }
+
+    /*Produkter venstre side*/
+  .products {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  /*Kurv højre side*/
+  .clear-cart {
+    background: #b1b0b0;
+    color: white;
+    border: none;
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    float: right;
+    margin-bottom: 1rem;
+    font-size: 10px;
+  }
+
+  .clear-cart:hover {
+      background: #9f9e9e;
+  }
+  .cart {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    height: fit-content;
+    position: sticky;
+    top: 100px; /* stays visible when scrolling */
+  }
+  
+  .cart h3 {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .cart p {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .cart-items {
+    margin-bottom: 1rem;
+  }
+
+  .cart-line {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .remove-one {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #444;
+  }
+
+  .remove-one:hover {
+    color: #c00;
+  }
+
+  .cart-total {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  }
+
+  .checkout-btn {
+    width: 100%;
+    background: #ED5B32;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .checkout-btn:hover {
+    background: #de5630;
+    transform: scale(1.03); /* Gør knappen lidt større ved hover */
+  }
+
+.product-intro {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  
+}
+.product-intro h1 {
+  font-size: 80px;
+  color: #ED5B32;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+.product-intro p {
+  margin: 0 auto 10px;
+  width: 80%;
+  max-width: 80%;
+}
+
+.product-intro p:last-child {
+  font-style: italic;
+}
+
+.ticket-section-title {
+  text-align: center;
+  font-size: 50px;
+  font-weight: 700;
+  padding: 20px 0 0 0;
+  margin:0;
+  font-family: "Montserrat", sans-serif;
+} 
+
+.ticket-card h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 35px;
+}
+
+.ticket-card p {
+  font-family: "Montserrat", sans-serif;
+}
+
+.requirement {
+  font-style: italic;
+  font-size: 14px;
+}
+
+.included {
+  font-weight: bold;
+}
+  /*Grid layout*/
+.ticket-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  gap: 2rem;
+  padding: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.ticket-grid.dag {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.ticket-grid.dag > .ticket-card:last-child {
+    grid-column: 1 / -1; /*start fra første grid kolonne til den sidste*/
+    justify-self: center;
+}
+
+.ticket-grid.camp {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* each column can shrink down to 0, but not exceed 360px */
+  gap: 2rem;
+  padding: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+/* SINGLE CARD CENTERED (PARTOUT) */
+.ticket-grid.single {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.ticket-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.ticket-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.price {
+  font-weight: bold;
+  margin: 1.5rem 0;
+  font-size: 18px;
+}
+
+.quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.quantity input {
+  width: 50px;
+  text-align: center;
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.qty-btn {
+  background: #eee;
+  border: none;
+  padding: 5px 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.qty-btn:hover {
+  background: #ddd;
+}
+
+/* BUY BUTTON */
+.buy-btn {
+  background: #ED5B32;
+  color: white;
+  border: none;
+  padding: 13px 40px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.buy-btn:hover {
+  background: #de5630;
+  transform: scale(1.03); /* Gør knappen lidt større ved hover */
+}
+/* PRODUCT CSS SLUT */
+
+
+/* START responsive web deisgn CSS */
+@media (max-width: 767px) { /* Justerer stilarter for skærme mindre end 768px */
+  .artist-detail-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 20px;
+  }
+
+  .artist-image-container {
+    margin: 0 auto;
+  }
+
+  .navbar {
+    padding-right: 8px; /* Reducerer højre padding for at give mere plads til logoet og åbne knappen */
+  }
+
+  .logo {
+    margin-left: -20; /* Fjerner venstre margin for at flytte logoet helt til venstre */
+  }
+
+  .logo img {
+    height: 52px;
+  }
+
+  .navbar .navbar-link,
+  .navbar .btn {
+    display: none;
+  }
+
+  .openbtn {
+    margin-right:-4px;
+    margin-left: -4px;
+  }
+
+  .openbtn { /* Vis knappen til at åbne sidenav på mobile enheder */
+    display: block;
+    font-size: 30px;
+    padding: 8px 12px;
+  }
+
+  .hero {
+    min-height: 60vh; /* Gør hero-sektionen højere på mindre skærme for at give mere plads til indholdet */
+    height: auto;
+    padding: 0 20px 40px;
+    box-sizing: border-box; /* Sikrer at padding ikke øger den totale bredde på hero-sektionen */
+  }
+
+  .hero-content {
+    align-items: center;
+    gap: 18px;
+    padding: 32px 0 0;
+  }
+
+  .title-hero {
+    font-size: clamp(3.6rem, 14vw, 5.2rem);
+    margin: 0 0 16px;
+    text-align: center;
+  }
+
+  .countdown {
+    margin-left: 0;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .countdown .unit span {
+    width: 72px;
+    font-size: 44px;
+  }
+
+  .countdown .unit p {
+    font-size: 18px;
+  }
+
+  .date-container {
+    margin: 20px 0 0;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .date-hero {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  #koeb-billet {
+    display: block;
+    width: fit-content; /* Gør knappen så bred som dens indhold */
+    margin: 8px auto 0;
+    font-size: 24px;
+  }
+
+  .lineup-container {
+    padding: 0 8px;
+    max-width: 70%; /*Gør at containeren ikke fylde hele skærmens bredde*/
+    margin: 20px auto;
+  }
+
+  .dag-1,
+  .dag-2,
+  .dag-3 {
+    width: 100%;
+    height: auto;
+    min-height: 360px;
+  }
+
+  .artist-track span {
+    font-size: 14px;
+  }
+
+  .marquee {
+    height: 8px;
+  }
+
+  .lineup-container h1 {
+    font-size: 52px;
+    margin-bottom: 20px;
+  }
+
+  .day-tab {
+    font-size: 32px;
+    margin-right: 20px;
+  }
+
+  .CTA {
+    height: 420px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .clapping-video {
+    height: 420px;
+  }
+
+  .CTA-content {
+    width: calc(100% - 40px);
+    padding: 16px;
+  }
+
+  .CTA-content h1 {
+    font-size: 46px;
+    margin-bottom: 12px;
+  }
+
+  #CTA-btn {
+    font-size: 22px;
+    margin: 20px 0 0;
+    font-weight: 700;
+  }
+
+  .om-os {
+    margin: 40px 20px;
+    gap: 24px;
+    flex-direction: column;
+  }
+
+  .closeup-img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .om-cta-text {
+    margin-top: 0;
+  }
+
+  .om-os h1 {
+    font-size: 44px;
+  }
+
+  .footer {
+    padding: 20px 16px;
+    gap: 20px;
+  }
+
+  .footer-contact,
+  .footer-about,
+  .footer-betingelser {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .footer-contact p {
+    text-align: center;
+  }
+
+  /*Lineup container START*/
+    .head1 {
+      font-size: 38px;
+    }
+
+    .head2 {
+      font-size: 32px;
+    }
+
+    .head3 {
+      font-size: 26px;
+    }
+
+    .head4 {
+      font-size: 21px;
+    }
+
+    .head5 {
+      font-size: 18px;
+    }
+
+    /* Lineup container END*/
+
+    /* Program page START*/
+    .program-intro h1 {
+      font-size: 60px;
+    }
+    .day-panel.active {
+      grid-template-columns: repeat(2, minmax(0,1fr)); /* Gør det muligt for dag-panelerne at have 2 kolonner i stedet for 3 på mindre skærme, og at de kan bryde til næste linje */
+      grid-auto-rows: 1fr; /*betyder at hver række i gridet skal have samme højde, og at de kan bryde til næste linje hvis det er nødvendigt */
+      width: 90%;
+      margin: 0 auto;
+    } /*1fr betyder at hver kolonne tager lige meget plads, og minmax(0,1fr) betyder at kolonnen kan krympe ned til 0 hvis det er nødvendigt*/
+
+    .tab-content img {
+      width: 100%;
+      height: 100%;
+      min-width: auto; 
+      min-height: auto;
+      max-width: none;
+      aspect-ratio: 1 / 1; /* Sikrer at billedet bevarer et kvadratisk format, uanset størrelsen på containeren */
+      object-fit: cover; /* Sikrer at billedet dækker hele området uden at ændre proportionerne, og at det beskæres hvis det er nødvendigt for at passe ind i det kvadratiske format */
+    }
+
+    .artist-card h3 {
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    .artist-detail-text {
+      order: 1; /* Gør at text kommer før billede selvom det normalt er omvendt*/
+    }
+    .artist-image-container {
+      order: 2;
+    }
+  /* Program page END */
+
+
+  /* Om page START */
+    .om-container h1 {
+      font-size: 60px;
+    }
+    .om-container h2 {
+      font-size: 44px;
+    }
+
+    .om-intro h1 {
+      font-size: 60px;
+    }
+
+    .om-intro p {
+      width: 100%;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .om-intro-text {
+      padding: 20px;
+    }
+
+    .om-vision-mission, .om-bæredygtighed, .om-musik, .om-praktisk {
+      flex-direction: column;
+      margin: 20px 20px;
+      gap: 20px;
+    }
+
+    .om-bæredygtighed-text,
+    .om-praktisk-text {
+      order: 2; /* Gør det muligt for teksten at komme efter billedet i sektioner hvor tekst normalt er først*/
+    }
+
+    .om-bæredygtighed img,
+    .om-praktisk img {
+      order: 1; /* Gør at billede kommer før tekst i sektionen */
+    }
+
+    .om-container section {
+      margin: 20px 20px;
+    }
+
+    .om-container img:not(.no-edit) {
+      max-width: 80%;
+      margin: 20px auto;
+    }
+  /* Om page END */
+
+  /*Product page START*/
+  .ticket-grid.dag {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .ticket-grid.camp {
+    grid-template-columns: 1fr; /* Kun 1 kolonne i telefon-størrelse*/
+  }
+  .shop-layout {
+      grid-template-columns: 1fr;
+    }
+
+  .cart {
+    position: static;
+    margin-top: 2rem;
+  }
+  /*Product page END*/
+}
+
+
+
+
+
+@media (min-width: 768px) and (max-width: 1023px) { /* Justerer stilarter for skærme mellem 768px og 1023px */
+  .logo {
+    margin-left: -20px; /* Fjerner venstre margin for at flytte logoet helt til venstre */
+  }
+
+  .navbar .navbar-link,
+  .navbar .btn {
+    display: none;
+  }
+
+  .title-hero {
+    margin: 35px 0 16px 48px;
+    text-align: left;
+  }
+
+  .hero {
+    position: relative; 
+    min-height: 100vh; /* Gør hero-sektionen så høj som hele viewporten */
+    overflow: hidden; /* Sikrer at indholdet ikke flyder uden for hero-sektionen */
+  }
+
+  .hero-content {
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 0 0 56px;
+  }
+
+  .title-hero {
+    margin: 0;
+  }
+
+  .countdown {
+    margin-left: 23px;
+    justify-content: flex-start;
+  }
+
+  .date-container {
+    margin: 20px 0 0 40px;
+  }
+
+  #koeb-billet {
+    margin: 8px 0 0 40px;
+  }
+
+  .artist-track span {
+    font-size: 14px;
+  }
+
+  .marquee {
+    height: 8px;
+  }
+
+  .lineup-container {
+    display: flex; /* Gør det muligt for elementerne at ligge på linje */
+    flex-direction: row; /* Arrangerer indholdet i en række */
+    flex-wrap: wrap; /* Tillader indholdet at bryde til næste linje */
+    justify-content: center; /* Centrerer containeren horisontalt */
+  }
+
+  .dag-1,
+  .dag-2,
+  .dag-3 {
+    width: calc(50% - 20px); /* Tager 50% af parent containerens bredde og minusser 20px for at skabe et gap mellem kolonnerne */
+    box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.258); /* Tilføjer en skygge for at få containeren til at skille sig ud */
+  }
+
+  .CTA {
+    height: 500px;
+  }
+
+  .clapping-video {
+    height: 500px;
+  }
+
+  .CTA-content h1 {
+    font-size: 64px;
+  }
+
+  .om-os {
+    margin: 60px 32px;
+    gap: 36px;
+  }
+
+  .closeup-img {
+    width: min(46vw, 430px);
+  }
+
+  .om-os h1 {
+    font-size: 50px;
+  }
+
+  .om-os,
+  footer {
+    flex-direction: row;
+  }
+
+  .day-panel.active {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Gør det muligt for dag-panelerne at have 2 kolonner i stedet for 3 på mellemstore skærme, og at de kan bryde til næste linje */
+    column-gap: 20px;
+  }
+
+  /* Product page start*/
+  
+  .ticket-grid.camp {
+    grid-template-columns: 1fr; /* Kun 1 kolonne i telefon-størrelse*/
+  }
+}
+
+
+/* desktop and up */
+@media (min-width: 1024px) {
+  .lineup-container {
+    flex-direction: row; /* Arrangerer indholdet i en række */
+  }
+}

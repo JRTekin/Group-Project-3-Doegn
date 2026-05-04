@@ -1,0 +1,235 @@
+/* Frivillig CSS*/
+/* ---------------------------------------------------
+   GLOBAL FONT FOR HELE FORMULAREN
+--------------------------------------------------- */
+.volunteer-form {
+    position: relative;
+    z-index: 2;
+}
+
+.volunteer-form,
+.volunteer-form * {
+    font-family: "Montserrat", sans-serif;
+}
+
+
+/* ---------------------------------------------------
+   HERO / GENERELT
+--------------------------------------------------- */
+
+
+.hero-volunteer {
+    position: relative;
+    min-height: 100vh;
+    /* Gør hero-sektionen så høj som hele viewporten */
+    overflow: hidden;
+    /* Sikrer at indholdet ikke flyder uden for hero-sektionen */
+    height: auto;
+    padding: 0 20px 40px;
+    box-sizing: border-box;
+    /* Sikrer at padding ikke øger den totale bredde på hero-sektionen */
+}
+
+.hero-volunteer {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.volunteer-form {
+    margin: 0 auto;
+}
+
+
+/* ---------------------------------------------------
+   VOLUNTEER PAGE WRAPPER
+--------------------------------------------------- */
+.volunteer-page {
+    padding: 60px 20px;
+    background: #F7F4EF;
+    color: #000;
+}
+
+/* ---------------------------------------------------
+   Background Image
+--------------------------------------------------- */
+.background-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1000;
+}
+
+
+
+
+
+/* ---------------------------------------------------
+   FORM CONTAINER
+--------------------------------------------------- */
+.volunteer-form {
+    z-index: 2;
+    max-width: 650px;
+    width: 100%;
+    background: #F7F4EF;
+    padding: 2.5rem;
+    border-radius: 12px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    box-sizing: border-box;
+}
+
+/* ---------------------------------------------------
+   TEKST
+--------------------------------------------------- */
+.volunteer-form h2 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    color: #ED5B32;
+}
+
+.form-field label {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+}
+
+.volunteer-form h2 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+}
+
+
+.intro-text {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    opacity: 0.9;
+    color: #000;
+}
+
+/* ---------------------------------------------------
+   FORM GRID
+--------------------------------------------------- */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.full-width {
+    grid-column: 1 / 3;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+    color: #000;
+}
+
+/* ---------------------------------------------------
+   INPUTS / SELECTS / TEXTAREA
+--------------------------------------------------- */
+.form-field input,
+.form-field select,
+.form-field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.8rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: rgba(255, 255, 255, 0.9);
+    color: #000;
+    font-size: 1rem;
+
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/* ---------------------------------------------------
+   CUSTOM CHECKBOX 
+--------------------------------------------------- */
+.consent-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.consent-wrapper input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.custom-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ED5B32;
+    border-radius: 4px;
+    background: #F7F4EF;
+    display: inline-block;
+    transition: 0.2s;
+    pointer-events: none;
+}
+
+.consent-wrapper input[type="checkbox"]:checked+.custom-checkbox {
+    background: #ED5B32;
+    border-color: #ED5B32;
+    box-shadow: inset 0 0 0 3px #F7F4EF;
+}
+
+.consent-text {
+    line-height: 1.4;
+    color: #000;
+    max-width: 500px;
+}
+
+/* ---------------------------------------------------
+   SUBMIT BUTTON
+--------------------------------------------------- */
+.submit-btn {
+    grid-column: 1 / 3;
+    padding: 1rem;
+    background: #ED5B32;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.submit-btn:hover {
+    background: #d44f2c;
+}
+
+/* ---------------------------------------------------
+   RESPONSIV (til mobil)
+--------------------------------------------------- */
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full-width {
+        grid-column: 1 / 2;
+    }
+}
